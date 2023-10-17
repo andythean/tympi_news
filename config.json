@@ -1,0 +1,39 @@
+{
+  "prefVoiceSys": "Daniel",
+  "prefVoiceNarr": "Fiona",
+  "speechRate": 1.0,
+  "volumeFac": 0.1,
+  "prefFeed": "BBC Top Stories",
+  "rss_feeds":[
+        {
+            "name": "BBC News Top Stories",
+            "url": "http://feeds.bbci.co.uk/news/rss.xml?edition=int"
+            },
+        {
+            "name": "The Guardian Most Popular Stories",
+            "url": "https://www.theguardian.com/uk/rss"  
+            },
+        {
+            "name": "Dutch News",
+            "url": "https://www.dutchnews.nl/feed"
+            },
+    	{
+    	    "name": "Japan Today",
+    	    "url": "http://japantoday.com/feed/atom"
+    	},
+        {
+            "name": "Wired News",
+            "url": "https://www.wired.com/feed",  
+             "notes": ""                 
+            },
+        {
+            "name": "BBC News World",
+            "url": "http://feeds.bbci.co.uk/news/world/rss.xml"
+            },
+        {
+            "name": "BBC News Science and Environment",
+            "url": "http://feeds.bbci.co.uk/news/science_and_environment/rss.xml"
+            }
+   ]
+}
+
