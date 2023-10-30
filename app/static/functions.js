@@ -186,7 +186,8 @@ function checkWebSpeechASR() {
 }
 
 
-// Some browsers might not return the voices list until the speechSynthesis.onvoiceschanged event is fired. 
+// Some browsers might not return the voices list 
+// until the speechSynthesis.onvoiceschanged event is fired. 
 // Known issue that can cause voices.length = 0 
 function getVoices() {
     return new Promise((resolve) => {
@@ -205,8 +206,8 @@ function getVoices() {
 // get list of available voices
 async function populateVoiceLists() {
 
-    //const voices = await getVoices();
-    let voices = speechSynthesis.getVoices();
+    const voices = await getVoices();
+    //let voices = speechSynthesis.getVoices();
     
     let englishVoices = voices.filter(voice => voice.lang.startsWith('en-'));
 
