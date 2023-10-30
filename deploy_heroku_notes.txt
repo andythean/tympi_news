@@ -9,6 +9,7 @@ Steps described [here](https://www.geeksforgeeks.org/deploy-python-flask-app-on-
 - Create runtime.txt - supported Heroku Python versions [here](https://devcenter.heroku.com/articles/python-support)
 - Create /app/main.py
 - Create /wsgi.py
+- pip3 freeze > requirements.txt
 - pipenv shell (enter virtual env)
 - Initialise empty git repo 
   - $ git init 
@@ -16,7 +17,7 @@ Steps described [here](https://www.geeksforgeeks.org/deploy-python-flask-app-on-
   - $ git commit -m "Initial Commit"
 - $ heroku login (Heroku CLI login)
 - $ heroku create name-of-app
-- $ git push heroku master
+- $ git push heroku main
 
 - exit (exit virtual env)
 
