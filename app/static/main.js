@@ -11,7 +11,7 @@ let sentences = {};
 
 let voiceListSys = [];
 let voiceListNarr = [];
-let menuList = ["System Voice", "Narration Voice", "Speech Rate"];
+let menuList = ["System Voice", "Narration Voice", "Voice Speed"];
 let speechRateList = ["Slower", "Normal Speed", "Slightly Faster", "Fast", "Very Fast"];
 let speechRateVals = [0.75, 1.0, 1.25, 1.5, 2.0];
 

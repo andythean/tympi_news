@@ -206,7 +206,7 @@ function getVoices() {
 // get list of available voices
 async function populateVoiceLists() {
 
-    const voices = await getVoices();
+    let voices = await getVoices();
     //let voices = speechSynthesis.getVoices();
     
     let englishVoices = voices.filter(voice => voice.lang.startsWith('en-'));
@@ -245,66 +245,66 @@ async function populateVoiceLists() {
 //}
 
 // Get around known issue that can cause voices.length = 0 
-async function processQueue_deprecaed() {
-    if (isSpeaking || speechQueue.length === 0) {
-      return;
-    }
+//async function processQueue_deprecaed() {
+//    if (isSpeaking || speechQueue.length === 0) {
+//      return;
+//    }
     
-    isSpeaking = true;
+//    isSpeaking = true;
     
-    const { text, voiceIndex, rate } = speechQueue.shift();
+//    const { text, voiceIndex, rate } = speechQueue.shift();
     
-    const voices = await getVoices();
-    const englishVoices = voices.filter(voice => voice.lang.startsWith('en-'));
+//    const voices = await getVoices();
+//    const englishVoices = voices.filter(voice => voice.lang.startsWith('en-'));
     
     // Check if voice index is valid
-    if (voiceIndex < 0 || voiceIndex >= englishVoices.length) {
-      console.log('Invalid voice index:', voiceIndex);
-      console.log('Setting to 0');
-      voiseIndex = 0;
-      return;
-    }
+//    if (voiceIndex < 0 || voiceIndex >= englishVoices.length) {
+//      console.log('Invalid voice index:', voiceIndex);
+//      console.log('Setting to 0');
+//      voiseIndex = 0;
+//      return;
+//    }
     
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.voice = englishVoices[voiceIndex];
-    utterance.rate = rate;
+//    const utterance = new SpeechSynthesisUtterance(text);
+//    utterance.voice = englishVoices[voiceIndex];
+//    utterance.rate = rate;
     
-    utterance.onerror = function(event) {
-      console.error('Speech synthesis error:', event.error);
-    };
+//    utterance.onerror = function(event) {
+//      console.error('Speech synthesis error:', event.error);
+//    };
     
-    utterance.onend = function() {
-      isSpeaking = false;
-      processQueue();
-    };
+//    utterance.onend = function() {
+//      isSpeaking = false;
+//      processQueue();
+//    };
     
-    window.speechSynthesis.speak(utterance);
-}
+//    window.speechSynthesis.speak(utterance);
+//}
 
 // Not always desirable to queue speech instructions e.g. to allow interrupt
-async function speakTextNoQueue(text, voiceIndex, rate) {
+//async function speakTextNoQueue(text, voiceIndex, rate) {
     
-    const voices = await getVoices();
-    const englishVoices = voices.filter(voice => voice.lang.startsWith('en-'));
+//    const voices = await getVoices();
+//    const englishVoices = voices.filter(voice => voice.lang.startsWith('en-'));
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.voice = englishVoices[voiceIndex];
-    utterance.rate = rate;
+//    const utterance = new SpeechSynthesisUtterance(text);
+//    utterance.voice = englishVoices[voiceIndex];
+//    utterance.rate = rate;
     
-    utterance.onerror = function(event) {
-        if (event.error === 'interrupted' || event.error === 'canceled'){
-            // do nothing
-        } else {    
-            console.error('Speech synthesis error:', event.error);
-        }
-    };
+//    utterance.onerror = function(event) {
+//        if (event.error === 'interrupted' || event.error === 'canceled'){
+//            // do nothing
+//       } else {    
+//            console.error('Speech synthesis error:', event.error);
+//        }
+//    };
     
-    utterance.onend = function() {
-        isAcceptSent = true;
-    };
+//    utterance.onend = function() {
+//        isAcceptSent = true;
+//    };
     
-    window.speechSynthesis.speak(utterance);    
-}
+//    window.speechSynthesis.speak(utterance);    
+//}
 
 // Take name as argument
 async function sayText(text, voiceName, rate) {

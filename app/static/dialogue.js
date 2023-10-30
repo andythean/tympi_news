@@ -64,7 +64,7 @@ function leftOnHome() {
         First select a news source, for example BBC news. 
         Next select a news story.
         When you are listening to a story you can pause or interrupt 
-        using 'LEFT' or 'UP'.`;
+        using 'LEFT', 'RIGHT', or 'UP'`;
     const footerStr = `'RIGHT' to select, or 'UP' to go back`
     sayText(outStr, config.prefVoiceSys, config.speechRate)
     updateDisplayedText("mainString", dispStr);
@@ -218,7 +218,7 @@ async function handleRight() {
                     currentState = "waitSelectNarrVoice";
                     offerNarrVoice();
                     break;
-                case "Speech Rate":                    
+                case "Voice Speed":                    
                     currentState = "waitSelectSpeechRate";
                     offerSpeechRate();
                     break;
@@ -226,7 +226,7 @@ async function handleRight() {
             break;
         case "waitSelectSysVoice":
             config.prefVoiceSys = setPref('prefVoiceSys', voiceListSys[voiceIndex].name); 
-            outStr = `Good. From now on this is the new default voice guide`;
+            outStr = `Good. This is the new guide voice`;
             sayText(outStr, config.prefVoiceSys, config.speechRate);
             voiceIndex = 0;
             currentState = "waitStart";
@@ -234,7 +234,7 @@ async function handleRight() {
             break;
         case "waitSelectNarrVoice":
             config.prefVoiceNarr = setPref('prefVoiceNarr', voiceListNarr[voiceIndex].name); 
-            outStr = `Done. This is the new default voice for announcing options and reading news stories`;
+            outStr = `Done. This is the new voice for reading news stories`;
             sayText(outStr, config.prefVoiceNarr, config.speechRate);
             voiceIndex = 0;
             currentState = "waitStart";
@@ -242,7 +242,7 @@ async function handleRight() {
             break;
         case "waitSelectSpeechRate":
             config.speechRate = setPref('speechRate', speechRateVals[speechRateIndex]); 
-            outStr = `Okay. This is the new default speech rate`;
+            outStr = `Okay. This is the new voice speed`;
             sayText(outStr, config.prefVoiceNarr, config.speechRate);
             speechRateIndex = 0;
             currentState = "waitStart";
@@ -335,7 +335,7 @@ function handleLeft() {
                 currentState = "waitSelectStory"
     
                 if (storyIndex < feedData.length){
-                    outStr = `Okay. Here's the next story`;
+                    outStr = `Here's the next story`;
                     sayText(outStr, config.prefVoiceSys, config.speechRate);
                     
                     // Read the title and wait
@@ -347,7 +347,7 @@ function handleLeft() {
                     storyIndex = 0;
                     currentState = "waitSelectFeed"
                     outStr = `That was the last story in the list.
-                         Let's go back and select another news source`;
+                         Let's select another news source`;
                     sayText(outStr, config.prefVoiceSys, config.speechRate);
                     rssName = config.rss_feeds[feedIndex].name;
                     updateDisplayedText("mainString", rssName);
@@ -399,7 +399,7 @@ function handleLeft() {
             if (speechRateIndex < speechRateList.length){
                 offerSpeechRate();
             } else {
-                outStr = `That was the last speech rate option. 
+                outStr = `That was the last voice speed option. 
                     Let's start again.`;
                 sayText(outStr, config.prefVoiceSys, config.speechRate);  
                 speechRateIndex = 0;
@@ -424,7 +424,7 @@ function handleUp() {
             break;
         case "waitSelectFeed":
             feedIndex = 0;
-            outStr = `Okay, returning to home`;
+            outStr = `Returning to home`;
             sayText(outStr, config.prefVoiceSys, config.speechRate);
             intialiseStartPage();
             currentState = "waitStart";
@@ -433,7 +433,7 @@ function handleUp() {
         case "waitSelectStory":
             feedindex = feedIndex + 1;
             storyIndex = 0;
-            outStr = `Okay, let's select a different news feed`;
+            outStr = `Let's select a different news feed`;
             sayText(outStr, config.prefVoiceSys, config.speechRate);
             intialiseStartPage();
             currentState = "waitSelectFeed"
@@ -448,7 +448,7 @@ function handleUp() {
             currentState = "waitSelectStory"
     
             if (storyIndex < feedData.length){
-                outStr = `Okay. Here's the next story`;
+                outStr = `Here's the next story`;
                 sayText(outStr, config.prefVoiceSys, config.speechRate);
                 
                 // Read the title and wait
@@ -468,7 +468,7 @@ function handleUp() {
             }      
 
             if (false) {
-                outStr = `Okay, here's the first story ftom the list`;
+                outStr = `Here's the first story ftom the list`;
                 sayText(outStr, config.prefVoiceSys, config.speechRate);
                 stopSpeakStory();
                 storyIndex = 0;
@@ -479,7 +479,7 @@ function handleUp() {
             }
             break;           
         case "waitMainMenu":
-            outStr = `Okay, returning to home`;
+            outStr = `Returning to home`;
             sayText(outStr, config.prefVoiceSys, config.speechRate);
             currentState = "waitStart"
             stopMusic();
