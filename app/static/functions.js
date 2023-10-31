@@ -206,8 +206,8 @@ function getVoices() {
 // get list of available voices
 async function populateVoiceLists() {
 
-    let voices = await getVoices();
-    //let voices = speechSynthesis.getVoices();
+    //let voices = await getVoices();
+    let voices = speechSynthesis.getVoices();
     
     let englishVoices = voices.filter(voice => voice.lang.startsWith('en-'));
 

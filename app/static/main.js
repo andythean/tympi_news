@@ -40,7 +40,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     checkWebSpeechTTS(); // Check browser compatibility
     loadConfigAndPrefs().then((config) => {
         populateVoiceLists().then((voiceListSys) => {
-            updateDisplayedText("footer", "Available voices:" + voiceListSys.length);
+            if (speechSynthesis.onvoiceschanged !== undefined) {
+              speechSynthesis.onvoiceschanged = populateVoiceList;
+            }
+            updateDisplayedText("footer", "Number of available voices:" + voiceListSys.length);
             });
         intialiseStartPage();
     });

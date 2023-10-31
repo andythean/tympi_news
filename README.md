@@ -41,10 +41,14 @@ Speechify polyfill for Web Speech API
 - [Speechify article](https://www.speechly.com/blog/full-browser-compability-webspeech-api)
 - [Github](https://github.com/speechly/speech-recognition-polyfill)
 
-# Dynadot config
+# DNS config
 
-CNAME record
+Heroku
+- $ heroku domains:add news.tympi.io (get Heroku DNS target)
+- Check Settings on Heroku web interface
+
+Dynadot
 - Type: CNAME
-- Name: app1.mydomain.io
-- Value: my-app1.herokuapp.com (no 'https://')
+- Name: news.tympi.io
+- Value: classical-castle-ospxy6d485r89vsjycoj4nig.herokudns.com (no 'https://')
 
