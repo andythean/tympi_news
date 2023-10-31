@@ -203,13 +203,34 @@ function getVoices() {
     });
 }
 
+let attempts = 0;
+function loadVoices() {
+  attempts++;
+  const voices = speechSynthesis.getVoices();
+  if (voices.length > 0) {
+    attempts = 0;
+    return voices
+    //voice = voices.find(_voice => /ja[-_]JP/.test(_voice.lang));
+  } else {
+    if (attempts < 10) {
+      setTimeout(() => {
+        console.log(attempts);
+        loadVoices();
+      }, 250);
+    } else {
+      console.log('No voices found.');
+    }
+  }
+}
+
 // get list of available voices
 async function populateVoiceLists() {
 
+    voices = await loadVoices();
     //let voices = await getVoices();
-    let voices = speechSynthesis.getVoices();
+    //let voices = speechSynthesis.getVoices();
     
-    let englishVoices = voices.filter(voice => voice.lang.startsWith('en-'));
+    let englishVoices = voices.filter(voice => voice.lang.startsWith('en'));
 
     // Use the function to get the stored/preferred voice
     const prefVoiceSys = getPref('prefVoiceSys');
@@ -226,7 +247,7 @@ async function populateVoiceLists() {
     }
 
     englishVoices.forEach((voice) => {             
-        console.log(voice.name)
+        //console.log(voice.name)
         if(voice.name !== prefVoiceSys) {
             voiceListSys.push(voice);
         }
