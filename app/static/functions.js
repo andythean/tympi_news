@@ -333,7 +333,8 @@ async function sayText(text, voiceName, rate) {
     const utterance = new SpeechSynthesisUtterance(text);
     
     // Retrieve the list of available voices
-    const voices = window.speechSynthesis.getVoices();
+    // const voices = window.speechSynthesis.getVoices();
+    const voices = loadVoices();
     
     // Find and set the desired voice
     const selectedVoice = voices.find(voice => voice.name === voiceName);

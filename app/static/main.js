@@ -9,6 +9,8 @@ let config = {};
 let feedData = {};
 let sentences = {};
 
+// let voices = loadVoices();
+
 let voiceListSys = [];
 let voiceListNarr = [];
 let menuList = ["System Voice", "Narration Voice", "Voice Speed"];
