@@ -43,12 +43,12 @@ Speechify polyfill for Web Speech API
 
 # DNS config
 
-Heroku
+Add domain to Heroku and get DNS target
 - $ heroku domains:add news.tympi.io (get Heroku DNS target)
 - Check Settings on Heroku web interface
 
-Dynadot
+Add domain to Dynadot and point to web app
 - Type: CNAME
 - Name: news.tympi.io
-- Value: classical-castle-ospxy6d485r89vsjycoj4nig.herokudns.com (no 'https://')
+- Value: classical-castle-ospxy6d485r89vsjycoj4nig.herokudns.com (Heroku DNS target, note: no 'https://')
 

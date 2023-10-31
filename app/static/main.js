@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     loadConfigAndPrefs().then((config) => {
         populateVoiceLists().then((voiceListSys) => {
             if (speechSynthesis.onvoiceschanged !== undefined) {
-              speechSynthesis.onvoiceschanged = populateVoiceList;
+              speechSynthesis.onvoiceschanged = populateVoiceLists;
             }
             updateDisplayedText("footer", "Number of available voices:" + voiceListSys.length);
             });
@@ -54,7 +54,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 window.speechSynthesis.onvoiceschanged = function() {
     //("mainString", "voice changed");
     //loadConfigAndPrefs();
-    //populateVoiceLists();
+    populateVoiceLists();
+    console.log("Number of available voices:" + voiceListSys.length);
     //intialiseStartPage();
 }
 
