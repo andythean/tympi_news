@@ -247,6 +247,7 @@ async function populateVoiceLists() {
 
     englishVoices.forEach((voice) => {             
         //console.log(voice.name)
+        console.log(voice.name, "-", voice.lang);
         if(voice.name !== prefVoiceSys) {
             voiceListSys.push(voice);
         }
@@ -430,7 +431,7 @@ function updateDisplayedText(elementId, newText) {
     if (displayElement) {
         // dynamically scale main text according to text length
         if (elementId === "mainString") {
-            console.log(newText.length)            
+            //console.log(newText.length)            
             displayElement.style.fontSize = '32px';
             if (newText.length > 75) {
                 displayElement.style.fontSize = '28px';
