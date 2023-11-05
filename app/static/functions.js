@@ -333,8 +333,8 @@ async function sayText(text, voiceName, rate) {
     const utterance = new SpeechSynthesisUtterance(text);
     
     // Retrieve the list of available voices
-    const voices = window.speechSynthesis.getVoices();
-    // const voices = loadVoices();
+    //const voices = window.speechSynthesis.getVoices();
+    const voices = await loadVoices();
     
     // Find and set the desired voice
     const selectedVoice = voices.find(voice => voice.name === voiceName);
@@ -434,9 +434,9 @@ function updateDisplayedText(elementId, newText) {
             //console.log(newText.length)            
             displayElement.style.fontSize = '48px';
             if (newText.length > 75) {
-                displayElement.style.fontSize = '42px';
+                displayElement.style.fontSize = '40px';
             } else if (newText.length > 125) {
-                contentEl.style.fontSize = '36px';
+                contentEl.style.fontSize = '32px';
             }
         }
 
