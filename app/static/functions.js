@@ -428,8 +428,20 @@ function updateDisplayedText(elementId, newText) {
 
     // Check if the element exists to avoid null reference errors
     if (displayElement) {
-        // Set the new text to the element
+        // dynamically scale main text according to text length
+        if (elementId === "mainString") {
+            console.log(newText.length)            
+            displayElement.style.fontSize = '32px';
+            if (newText.length > 75) {
+                displayElement.style.fontSize = '28px';
+            } else if (newText.length > 125) {
+                contentEl.style.fontSize = '24px';
+            }
+        }
+
+        // Set the new text
         displayElement.textContent = newText;
+        
     } else {
         console.error(`Element with id "${elementId}" not found.`);
     }

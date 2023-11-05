@@ -39,7 +39,7 @@ let rssName = "";
 
 document.addEventListener('DOMContentLoaded', (event) => {
     //intialiseStartPage();
-    // checkWebSpeechASR();
+    // checkWebSpeechASR();  
     checkWebSpeechTTS(); // Check browser compatibility
     loadConfigAndPrefs().then((config) => {
         populateVoiceLists().then((voiceListSys) => {
