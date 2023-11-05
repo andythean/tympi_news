@@ -342,6 +342,7 @@ async function sayText(text, voiceName, rate) {
     utterance.rate = rate;
     
     utterance.onerror = function(event) {
+        updateDisplayedText("footer", event.error);
         if (event.error === 'interrupted' || event.error === 'canceled'){
             // do nothing
         } else {    
@@ -353,7 +354,6 @@ async function sayText(text, voiceName, rate) {
         isAcceptSent = true;
     };
     
-    updateDisplayedText("footer", utterance.voice.name + ": " + utterance.voice.lang);
     window.speechSynthesis.speak(utterance);    
 }
 
