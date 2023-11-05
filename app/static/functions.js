@@ -185,7 +185,6 @@ function checkWebSpeechASR() {
     }
 }
 
-
 // Some browsers might not return the voices list 
 // until the speechSynthesis.onvoiceschanged event is fired. 
 // Known issue that can cause voices.length = 0 
@@ -333,8 +332,8 @@ async function sayText(text, voiceName, rate) {
     const utterance = new SpeechSynthesisUtterance(text);
     
     // Retrieve the list of available voices
-    // const voices = window.speechSynthesis.getVoices();
-    const voices = loadVoices();
+    const voices = window.speechSynthesis.getVoices();
+    // const voices = loadVoices();
     
     // Find and set the desired voice
     const selectedVoice = voices.find(voice => voice.name === voiceName);
@@ -366,10 +365,17 @@ function speakStory() {
         sentIndex = sentIndex + 1;
     } 
     
+    // Dispatch event at end of story 
+    if (sentIndex >= sentences.length){
+        keepSpeaking = false;
+        document.dispatchEvent(readStoryEvent);
+    }
+
     // Check if interrupt 
     if (keepSpeaking) {
         requestAnimationFrame(speakStory);
     }
+    
 }
 
 function startSpeakStory() {
@@ -415,7 +421,7 @@ function startRecognition(callback) {
 // UI
 // ---
 
-// Update text in browser window 
+// Update plain text in browser window 
 function updateDisplayedText(elementId, newText) {
     // Get the element by its ID
     const displayElement = document.getElementById(elementId);
@@ -429,5 +435,12 @@ function updateDisplayedText(elementId, newText) {
     }
 }
 
+// Update text with hyperlinlks in browser window 
+function updateDisplayedTextwithLink(elementId, href, innerText, preLinkText, postLinkText) {
+    
+    // Get the element
+    const displayElement = document.getElementById(elementId);
 
-
+    const link = '&nbsp<a href="' + href + '" target="_blank">' + innerText + '</a>&nbsp';
+    displayElement.innerHTML = preLinkText + link + postLinkText;
+}

@@ -169,15 +169,18 @@ async function handleRight() {
                 const selectedStory = feedData[storyIndex];
     
                 storyTitle = selectedStory.title;
-                storySummary = selectedStory.summary;
+                //storySummary = selectedStory.summary;
+                storyUrl = selectedStory.link;
     
                 outStr = `Okay, getting story`;
                 sayText(outStr, config.prefVoiceSys, config.speechRate)
                 pauseMusic();
-                        
+
                 // get sentences
                 sentIndex = 0;
-                sentences = await fetchSents(selectedStory.link);
+                updateDisplayedTextwithLink("footer", storyUrl, "click here", "For story source and credits:   ", "")
+                // updateDisplayedText("footer", storyUrl);
+                sentences = await fetchSents(storyUrl);
                 startSpeakStory();
     
                 currentState = "readingStory"; 
@@ -204,8 +207,9 @@ async function handleRight() {
                 storyName = feedData[storyIndex].title;
                 updateDisplayedText("mainString", storyName);
                 sayText(storyName, config.narrVoiceIndex, config.speechRate);
-            }
-            
+            }            
+            break;
+        case "doneReadingStory":
             break;
         case "waitMainMenu":
             console.log(menuList[menuIndex])
@@ -248,7 +252,6 @@ async function handleRight() {
             currentState = "waitStart";
             intialiseStartPage();
             break;
-        
         default:
             console.error("Invalid state: ", currentState);
     }
@@ -322,7 +325,7 @@ function handleLeft() {
             // Pause play
             //if (keepSpeaking) {
                 //sayText("Pause", config.prefVoiceSys, config.speechRate);
-                stopSpeakStory()
+            stopSpeakStory()
             //} else {
                 // do nothing
             //}
@@ -354,8 +357,9 @@ function handleLeft() {
                     sayText(rssName, config.narrVoiceIndex, config.speechRate)
                 }      
             }
-      
             break;           
+        case "doneReadingStory":
+            break;
         case "waitMainMenu":
             menuIndex = menuIndex + 1;
             if (menuIndex < menuList.length) {
@@ -440,7 +444,6 @@ function handleUp() {
             initFeedSelect();
             break;           
         case "readingStory":
-            console.log(isAcceptSent)
             stopSpeakStory();
             playMusic();
             storyIndex = storyIndex + 1;
@@ -478,6 +481,8 @@ function handleUp() {
                 currentState = "waitSelectStory"
             }
             break;           
+        case "doneReadingStory":
+            break;
         case "waitMainMenu":
             outStr = `Returning to home`;
             sayText(outStr, config.prefVoiceSys, config.speechRate);

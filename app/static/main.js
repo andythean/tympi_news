@@ -27,6 +27,7 @@ let speechRateIndex = 0;
 let isSpeaking = false;
 let keepSpeaking = true;
 let isAcceptSent = true;
+const readStoryEvent = new Event('readStoryComplete');
 
 let touchStartX;
 let touchStartY;
@@ -108,4 +109,12 @@ document.getElementById('menu-link').addEventListener('click', function(event) {
 document.getElementById('about-link').addEventListener('click', function(event) {
     event.preventDefault();
     navBarAbout()
+});
+
+// Listen for end of story
+document.addEventListener('readStoryComplete', () => {
+    console.log('Finished reading story');
+    //sayText("End of story", config.sysVoiceIndex, config.speechRate);
+    //currentState = "doneReadingStory";
+    currentState = "readingStory";
 });
