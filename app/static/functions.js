@@ -353,6 +353,7 @@ async function sayText(text, voiceName, rate) {
         isAcceptSent = true;
     };
     
+    updateDisplayedText("footer", utterance.voice.name + ": " + utterance.voice.lang);
     window.speechSynthesis.speak(utterance);    
 }
 
