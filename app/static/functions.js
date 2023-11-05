@@ -432,11 +432,11 @@ function updateDisplayedText(elementId, newText) {
         // dynamically scale main text according to text length
         if (elementId === "mainString") {
             //console.log(newText.length)            
-            displayElement.style.fontSize = '32px';
+            displayElement.style.fontSize = '48px';
             if (newText.length > 75) {
-                displayElement.style.fontSize = '28px';
+                displayElement.style.fontSize = '42px';
             } else if (newText.length > 125) {
-                contentEl.style.fontSize = '24px';
+                contentEl.style.fontSize = '36px';
             }
         }
 

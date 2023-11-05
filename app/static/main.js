@@ -48,10 +48,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 //            });
 //        intialiseStartPage();
 //    });
-});
-
-// Get voice list and config following trigger that voics are loaded
-window.speechSynthesis.onvoiceschanged = function() {
     checkWebSpeechTTS(); // Check browser compatibility
     loadConfigAndPrefs().then((config) => {
         populateVoiceLists().then((voiceListSys) => {
@@ -62,6 +58,11 @@ window.speechSynthesis.onvoiceschanged = function() {
             });
         intialiseStartPage();
     });
+
+});
+
+// Get voice list and config following trigger that voics are loaded
+window.speechSynthesis.onvoiceschanged = function() {
 }
 
 // Listen for arrow keys
