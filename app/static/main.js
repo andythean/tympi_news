@@ -17,6 +17,7 @@ let menuList = ["System Voice", "Narration Voice", "Voice Speed"];
 let speechRateList = ["Slower", "Normal Speed", "Slightly Faster", "Fast", "Very Fast"];
 let speechRateVals = [0.75, 1.0, 1.25, 1.5, 2.0];
 
+let verbose = false;
 let feedIndex = 0;
 let storyIndex = 0;
 let sentIndex = 0;

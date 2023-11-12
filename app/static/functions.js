@@ -386,7 +386,7 @@ function startSpeakStory() {
     speakStory();
 }
 
-function stopSpeakStory() {
+function stopSpeakStory() { 
     keepSpeaking = false;
     isAcceptSent = false;
     stopSpeaking();

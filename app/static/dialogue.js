@@ -84,7 +84,11 @@ function initMenu() {
 function initFeedSelect() {
     const instructStr = `'RIGHT' to select, 'LEFT' to skip, or 'UP' to go back`
     updateDisplayedText("footer", instructStr);
-    outStr = `Please choose from the following news sources.` + instructStr;
+    if (verbose){
+        outStr = `Please choose from the following news sources.` + instructStr;
+    } else{
+        outStr = `Please choose from the following news sources.`;
+    }
     sayText(outStr, config.prefVoiceSys, config.speechRate)
     rssName = config.rss_feeds[feedIndex].name;
     updateDisplayedText("mainString", rssName);
@@ -141,18 +145,29 @@ async function handleRight() {
                 const selectedFeed = config.rss_feeds[feedIndex];
                 rssName = selectedFeed.name;
                 rssUrl = selectedFeed.url;
+                console.log(rssUrl)
                 
-                outStr = `Okay, getting news from`;
-                sayText(outStr, config.prefVoiceSys, config.speechRate)
-                sayText(rssName, config.prefVoiceNarr, config.speechRate)
-                
-                outStr = `Please select from the following news headlines`;
+                if (verbose){
+                    outStr = `Okay, getting news from`;
+                    sayText(outStr, config.prefVoiceSys, config.speechRate)
+                    sayText(rssName, config.prefVoiceNarr, config.speechRate)
+                } else {
+                    outStr = `Getting news`;
+                    sayText(outStr, config.prefVoiceSys, config.speechRate)                
+                }
+                                
+                if (verbose){
+                    outStr = `Please select from the following news headlines`;
+                } else {
+                    outStr = `Select a news headline`
+                }
+
                 // Fetch feed data and speak prompt concurrently
                 [feedData, dummyData] = await Promise.all([fetchFeedContent(rssUrl), sayText(outStr, config.prefVoiceSys, config.speechRate)]);
-                        
+                                           
                 // Read story headline                    
                 storyTitle = feedData[storyIndex].title;
-                storySummary = feedData[storyIndex].summary;
+                // storySummary = feedData[storyIndex].summary;
                 updateDisplayedText("mainString", storyTitle);
                 updateDisplayedText("footer", rssName);
                 sayText(storyTitle, config.narrVoiceIndex, config.speechRate)

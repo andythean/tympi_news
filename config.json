@@ -17,23 +17,53 @@
             "name": "Dutch News",
             "url": "https://www.dutchnews.nl/feed"
             },
+        {
+             "name": "Washington Post National News",
+             "url": "https://feeds.washingtonpost.com/rss/national"
+            },                    
+        {
+            "name": "NPR",
+            "url": "https://feeds.npr.org/1003/rss.xml",
+       	    "notes": ""
+       	    },
     	{
     	    "name": "Japan Today",
     	    "url": "http://japantoday.com/feed/atom"
-    	},
+    	},    	
+        {
+            "name": "Sydney Morning Herald Latest News",
+            "url": "https://www.smh.com.au/rss/feed.xml",
+       	    "notes": ""
+       	    },0
+        {
+            "name": "BBC News Science and Environment",
+            "url": "http://feeds.bbci.co.uk/news/science_and_environment/rss.xml"
+            },
         {
             "name": "Wired News",
             "url": "https://www.wired.com/feed",  
              "notes": ""                 
             },
         {
-            "name": "BBC News World",
-            "url": "http://feeds.bbci.co.uk/news/world/rss.xml"
-            },
+            "name": "Endagadget",
+            "url": "https://www.engadget.com/rss.xml",
+       	    "notes": ""
+       	    },            
         {
-            "name": "BBC News Science and Environment",
-            "url": "http://feeds.bbci.co.uk/news/science_and_environment/rss.xml"
-            }
+            "name": "AppleVis Blog Posts",
+            "url": "https://www.applevis.com/feed/blog.xml",
+       	    "notes": ""
+       	    }, 	           	           	    
+        {
+            "name": "AppleVis Accessory Reviews",
+            "url": "https://www.applevis.com/feed/reviews.xml",
+       	    "notes": ""
+       	    }, 	           	           	    
+        {
+            "name": "AppleVis Guides and Tutorials",
+            "url": "https://www.applevis.com/feed/guides.xml",
+       	    "notes": ""
+       	    } 	           	           	                
    ]
 }
 
