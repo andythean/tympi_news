@@ -92,7 +92,7 @@ function initFeedSelect() {
     sayText(outStr, config.prefVoiceSys, config.speechRate)
     rssName = config.rss_feeds[feedIndex].name;
     updateDisplayedText("mainString", rssName);
-    sayText(rssName, config.narrVoiceIndex, config.speechRate)
+    sayText(rssName, config.prefVoiceNarr, config.speechRate)
 }
 
 function offerSysVoice () {
@@ -170,12 +170,12 @@ async function handleRight() {
                 // storySummary = feedData[storyIndex].summary;
                 updateDisplayedText("mainString", storyTitle);
                 updateDisplayedText("footer", rssName);
-                sayText(storyTitle, config.narrVoiceIndex, config.speechRate)
+                sayText(storyTitle, config.prefVoiceNarr, config.speechRate)
 
                 currentState = "waitSelectStory"; 
             } catch {
                 outStr = `Sorry, it wasn't possible to retreive news from ${rssName}`;
-                sayText(outStr, config.sysVoiceIndex, config.speechRate)
+                sayText(outStr, config.prefVoiceSys, config.speechRate)
             }
             break;
         case "waitSelectStory":
@@ -201,7 +201,7 @@ async function handleRight() {
                 currentState = "readingStory"; 
             } catch {
                 outStr = `Sorry, it wasn't possible to retrieve that story`;
-                sayText(outStr, config.sysVoiceIndex, config.speechRate)
+                sayText(outStr, config.prefVoiceSys, config.speechRate)
             }
 
             break;
@@ -221,7 +221,7 @@ async function handleRight() {
                 // Read the title and wait
                 storyName = feedData[storyIndex].title;
                 updateDisplayedText("mainString", storyName);
-                sayText(storyName, config.narrVoiceIndex, config.speechRate);
+                sayText(storyName, config.prefVoiceNarr, config.speechRate);
             }            
             break;
         case "doneReadingStory":
@@ -282,7 +282,6 @@ function handleLeft() {
             // Go to next feed in list
             feedIndex = feedIndex + 1;
 
-
             outStr = `Skipping`;
             sayText(outStr, config.prefVoiceSys, config.speechRate);
             
@@ -294,12 +293,12 @@ function handleLeft() {
                 // Announce first feed name
                 rssName = config.rss_feeds[feedIndex].name;
                 updateDisplayedText("mainString", rssName);
-                sayText(rssName, config.narrVoiceIndex, config.speechRate);              
+                sayText(rssName, config.prefVoiceNarr, config.speechRate);              
             } else {
                 // Read the feed name
                 rssName = config.rss_feeds[feedIndex].name;
                 updateDisplayedText("mainString", rssName);
-                sayText(rssName, config.narrVoiceIndex, config.speechRate);
+                sayText(rssName, config.prefVoiceNarr, config.speechRate);
             }
 
             updateDisplayedText("footer", `Option: ${feedIndex+1}/${config.rss_feeds.length}`);
@@ -331,7 +330,7 @@ function handleLeft() {
                 // Read the title and wait
                 storyName = feedData[storyIndex].title;
                 updateDisplayedText("mainString", storyName);
-                sayText(storyName, config.narrVoiceIndex, config.speechRate);
+                sayText(storyName, config.prefVoiceNarr, config.speechRate);
                 updateDisplayedText("footer", `${rssName}: ${storyIndex+1}/${feedData.length}`);
             }
             break;           
@@ -359,7 +358,7 @@ function handleLeft() {
                     // Read the title and wait
                     storyName = feedData[storyIndex].title;
                     updateDisplayedText("mainString", storyName);
-                    sayText(storyName, config.narrVoiceIndex, config.speechRate);
+                    sayText(storyName, config.prefVoiceNarr, config.speechRate);
                 } else {
                     feedIndex = feedIndex + 1;
                     storyIndex = 0;
@@ -369,7 +368,7 @@ function handleLeft() {
                     sayText(outStr, config.prefVoiceSys, config.speechRate);
                     rssName = config.rss_feeds[feedIndex].name;
                     updateDisplayedText("mainString", rssName);
-                    sayText(rssName, config.narrVoiceIndex, config.speechRate)
+                    sayText(rssName, config.prefVoiceNarr, config.speechRate)
                 }      
             }
             break;           
@@ -472,7 +471,7 @@ function handleUp() {
                 // Read the title and wait
                 storyName = feedData[storyIndex].title;
                 updateDisplayedText("mainString", storyName);
-                sayText(storyName, config.narrVoiceIndex, config.speechRate);
+                sayText(storyName, config.prefVoiceNarr, config.speechRate);
                 currentState = "waitSelectStory"
             } else {
                 feedIndex = feedIndex + 1;
@@ -482,7 +481,7 @@ function handleUp() {
                 sayText(outStr, config.prefVoiceSys, config.speechRate);
                 rssName = config.rss_feeds[feedIndex].name;
                 updateDisplayedText("mainString", rssName);
-                sayText(rssName, config.narrVoiceIndex, config.speechRate)
+                sayText(rssName, config.prefVoiceNarr, config.speechRate)
             }      
 
             if (false) {
@@ -492,7 +491,7 @@ function handleUp() {
                 storyIndex = 0;
                 storyName = feedData[storyIndex].title;
                 updateDisplayedText("mainString", storyName);
-                sayText(storyName, config.narrVoiceIndex, config.speechRate);
+                sayText(storyName, config.prefVoiceNarr, config.speechRate);
                 currentState = "waitSelectStory"
             }
             break;           

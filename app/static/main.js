@@ -39,16 +39,6 @@ let outStr = "";
 let rssName = "";
 
 document.addEventListener('DOMContentLoaded', (event) => {
-//    checkWebSpeechTTS(); // Check browser compatibility
-//    loadConfigAndPrefs().then((config) => {
-//        populateVoiceLists().then((voiceListSys) => {
-//            if (speechSynthesis.onvoiceschanged !== undefined) {
-//              speechSynthesis.onvoiceschanged = populateVoiceLists;
-//            }
-//            updateDisplayedText("footer", "Number of available voices:" + voiceListSys.length);
-//            });
-//        intialiseStartPage();
-//    });
     checkWebSpeechTTS(); // Check browser compatibility
     loadConfigAndPrefs().then((config) => {
         populateVoiceLists().then((voiceListSys) => {
@@ -59,7 +49,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
         intialiseStartPage();
     });
-
 });
 
 // Get voice list and config following trigger that voics are loaded
