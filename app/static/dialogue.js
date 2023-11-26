@@ -39,15 +39,14 @@ function enableSpeech() {
     outStr = `Speech enabled`;
     updateDisplayedText("mainString", dispStr);
     setTimeout(() => {sayText(outStr, config.prefVoiceNarr, config.speechRate)}, 200);    
+    setTimeout(() => {intialiseStartPage()}, 5000);
 }
 
 
 // Start page
 function intialiseStartPage() {
-    footerStr = "'RIGHT' to select, 'LEFT' to skip, 'UP' to go back"
-    outStr = "Swipe or use the arrow keys." + footerStr;
+    outStr = "Swipe or use the arrow keys. 'RIGHT' for user guide, 'LEFT' for news stories, 'UP' for settings"  
     updateDisplayedText("mainString", outStr);
-    updateDisplayedText("footer", footerStr);
     try {
         // TO DO: ckeck TTS allowed e.g. after user event
         //sayText(outStr, config.prefVoiceSys, config.speechRate)
@@ -64,8 +63,8 @@ function rightOnHome() {
 
 function leftOnHome() {
     playMusic();
-    dispStr = `You should be able to hear instructions being spoken aloud.
-        If not check your audio settings, click 'About', or try a different browser.`;
+    dispStr = `You should hear spoken instructions.
+        If not, click 'Enable Speech', or try a different browser. Navigate by using 'RIGHT' to select, 'LEFT' to skip, and 'UP' to go back`;
     outStr = `Swipe or use the arrow keys to navigate.
         Use 'RIGHT' to select, 'LEFT' to skip, or 'UP' to go back. 
         First select a news source, for example BBC news. 
