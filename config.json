@@ -45,11 +45,6 @@
              "notes": ""                 
             },
         {
-            "name": "Endagadget",
-            "url": "https://www.engadget.com/rss.xml",
-       	    "notes": ""
-       	    },            
-        {
             "name": "AppleVis Blog Posts",
             "url": "https://www.applevis.com/feed/blog.xml",
        	    "notes": ""

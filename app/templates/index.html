@@ -93,6 +93,7 @@
 
     <nav>
         <ul>
+            <li><a href="#enableTts" id="enableTts-link">Enable Speech</a></li>
             <li><a href="#menu" id="menu-link">Settings</a></li>
             <li><a href="#about" id="about-link">About</a></li>
         </ul>
@@ -111,8 +112,8 @@
     </audio>
 
     <!-- Loading scripts in the correct order -->
-     <script src="{{ url_for('static', filename='dialogue.js') }}"></script>
-     <script src="{{ url_for('static', filename='functions.js') }}"></script>
+     <script defer src="{{ url_for('static', filename='dialogue.js') }}"></script>
+     <script defer src="{{ url_for('static', filename='functions.js') }}"></script>
      <script defer src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 </html>

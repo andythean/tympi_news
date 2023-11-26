@@ -24,16 +24,23 @@ function navBarMenu() {
 
 function navBarAbout() {
     stopSpeakStory();
-    resetIndices()
     playMusic();
-    dispStr = `Find out more at tympi.io`;
-    outStr = `This app is designed to make news more accessible. 
-        Find out more at timpee dot I O`;
+    dispStr = `Thanks for trying this prototype`;
+    outStr = `This is a prototype designed to make news more accessible. `;
     updateDisplayedText("mainString", dispStr);
     setTimeout(() => {sayText(outStr, config.prefVoiceNarr, config.speechRate)}, 200);    
     setTimeout(() => {intialiseStartPage()}, 5000);
     currentState = "waitStart";
 }
+
+function enableSpeech() {
+    stopSpeakStory();
+    dispStr = `This is necessary on mobile devices`;
+    outStr = `Speech enabled`;
+    updateDisplayedText("mainString", dispStr);
+    setTimeout(() => {sayText(outStr, config.prefVoiceNarr, config.speechRate)}, 200);    
+}
+
 
 // Start page
 function intialiseStartPage() {

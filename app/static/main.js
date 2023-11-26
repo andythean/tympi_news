@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 // Get voice list and config following trigger that voics are loaded
-window.speechSynthesis.onvoiceschanged = function() {
-}
+//window.speechSynthesis.onvoiceschanged = function() {
+//}
 
 // Listen for arrow keys
 document.addEventListener('keydown', (event) => {
@@ -94,14 +94,19 @@ document.addEventListener('touchend', (event) => {
 });
 
 // Menu bar
+document.getElementById('enableTts-link').addEventListener('click', function(event) {
+    event.preventDefault();
+    enableSpeech();
+});
+
 document.getElementById('menu-link').addEventListener('click', function(event) {
     event.preventDefault();
-    navBarMenu()
+    navBarMenu();
 });
 
 document.getElementById('about-link').addEventListener('click', function(event) {
     event.preventDefault();
-    navBarAbout()
+    navBarAbout();
 });
 
 // Listen for end of story
