@@ -265,7 +265,7 @@ async function populateVoiceLists() {
 // Function to speak text with a specific voice
 function sayText(text, voiceName, rate) {
 //function sayText(text, voiceIndex, rate) {
-    const voiceIndex = 2; ///test
+    const voiceIndex = 3; ///test
     
     if (!isVoicesLoaded) {
         console.error('Voices are not loaded yet.');
