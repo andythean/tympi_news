@@ -263,7 +263,7 @@ async function populateVoiceLists() {
 // TTS
 
 // Function to speak text with a specific voice
-function sayText(text, voiceName, rate) {
+function sayTextTrial(text, voiceName, rate) {
 //function sayText(text, voiceIndex, rate) {
     const voiceIndex = 3; ///test
     
@@ -290,7 +290,7 @@ function sayText(text, voiceName, rate) {
 
 
 // Take voiceName as argument
-async function sayTextTemp(text, voiceName, rate) {
+async function sayText(text, voiceName, rate) {
     
     const utterance = new SpeechSynthesisUtterance(text);
     
