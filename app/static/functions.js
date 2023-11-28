@@ -267,12 +267,16 @@ function sayText(text, voiceName, rate) {
 //function sayText(text, voiceIndex, rate) {
     const voiceIndex = 3; ///test
     
+    updateDisplayedText("footer", 'Test.');
+
     if (!isVoicesLoaded) {
+        updateDisplayedText("footer", 'Voices are not loaded yet.');
         console.error('Voices are not loaded yet.');
         return;
     }
 
     if (voiceIndex < 0 || voiceIndex >= availableVoices.length) {
+        updateDisplayedText("footer", 'Voice index out of range.');
         console.error('Voice index out of range.');
         return;
     }
