@@ -64,14 +64,14 @@ function rightOnHome() {
 function leftOnHome() {
     playMusic();
     dispStr = `You should hear spoken instructions.
-        If not, click 'Enable Speech', or try a different browser. Navigate by using 'RIGHT' to select, 'LEFT' to skip, and 'UP' to go back`;
+        If not, click 'Enable Speech', or try a different browser.`;
     outStr = `Swipe or use the arrow keys to navigate.
         Use 'RIGHT' to select, 'LEFT' to skip, or 'UP' to go back. 
         First select a news source, for example BBC news. 
         Next select a news story.
         When you are listening to a story you can pause or interrupt 
         using 'LEFT', 'RIGHT', or 'UP'`;
-    const footerStr = `'RIGHT' to select, or 'UP' to go back`
+    const footerStr = `'LEFT' to skip, 'RIGHT' to select, or 'UP' to go back`
     sayText(outStr, config.prefVoiceSys, config.speechRate)
     updateDisplayedText("mainString", dispStr);
     updateDisplayedText("footer", footerStr);

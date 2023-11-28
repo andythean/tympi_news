@@ -230,6 +230,8 @@ async function populateVoiceLists() {
     //let voices = speechSynthesis.getVoices();
     
     let englishVoices = voices.filter(voice => voice.lang.startsWith('en'));
+    availableVoices = englishVoices;
+    isVoicesLoaded = true;
 
     // Use the function to get the stored/preferred voice
     const prefVoiceSys = getPref('prefVoiceSys');
@@ -260,8 +262,31 @@ async function populateVoiceLists() {
 
 // TTS
 
+// Function to speak text with a specific voice
+function sayText(text, voiceName, rate) {
+//function sayText(text, voiceIndex, rate) {
+    const voiceIndex = 2; ///test
+    
+    if (!isVoicesLoaded) {
+        console.error('Voices are not loaded yet.');
+        return;
+    }
+
+    if (voiceIndex < 0 || voiceIndex >= availableVoices.length) {
+        console.error('Voice index out of range.');
+        return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.voice = availableVoices[voiceIndex];
+    utterance.rate = rate;
+    speechSynthesis.speak(utterance);
+}
+
+
+
 // Take voiceName as argument
-async function sayText(text, voiceName, rate) {
+async function sayTextTemp(text, voiceName, rate) {
     
     const utterance = new SpeechSynthesisUtterance(text);
     
