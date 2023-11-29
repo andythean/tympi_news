@@ -16,9 +16,10 @@ function resetIndices() {
 
 function navBarMenu() {
     stopSpeakStory();
-    resetIndices()
+    menuIndex = 0;
     playMusic();
-    setTimeout(() => {initMenu()}, 200);    
+    //setTimeout(() => {initMenu()}, 200);    
+    initMenu();    
     currentState = "waitMainMenu";
 }
 
