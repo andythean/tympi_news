@@ -16,8 +16,9 @@ let voiceListNarr = [];
 let menuList = ["System Voice", "Narration Voice", "Voice Speed"];
 let speechRateList = ["Slower", "Normal Speed", "Slightly Faster", "Fast", "Very Fast"];
 let speechRateVals = [0.75, 1.0, 1.25, 1.5, 2.0];
-let iosNoveltyVoices = ["Rocko", "Shelley", "Grandma", "Grandpa", "Flo", "Zarvox", "Suoerstar", "Jester", //
-       "Junior", "Bad News", "Bells", "Boing", "Bubbles", "Cellos", "Good News", "Pipe Organ", "Trinoids", "Whisper"]
+let iosNoveltyVoices = ["Rocko", "Shelley", "Grandma", "Grandpa", "Flo", "Zarvox", "Superstar", "Jester", //
+        "Eddy", "Reed", "Sandy", "Bahh", "Albert", "Fred", "Organ", "Junior", "Bad News", "Bells", "Boing", //
+        "Bubbles", "Cellos", "Good News", "Pipe Organ", "Trinoids", "Whisper", "Wobble"]
 
 let availableVoices = [];
 let isVoicesLoaded = false;
