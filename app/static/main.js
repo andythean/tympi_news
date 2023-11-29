@@ -44,12 +44,14 @@ let rssName = "";
 document.addEventListener('DOMContentLoaded', (event) => {
     checkWebSpeechTTS(); // Check browser compatibility
     loadConfigAndPrefs().then((config) => {
-        populateVoiceLists().then((voiceListSys) => {
-            if (speechSynthesis.onvoiceschanged !== undefined) {
-              speechSynthesis.onvoiceschanged = populateVoiceLists;
-            }
+        populateVoiceLists().then((voiceListSys, VoiceListNarr) => {
+            //if (speechSynthesis.onvoiceschanged !== undefined) {              
+            //  speechSynthesis.onvoiceschanged = populateVoiceLists;
+            //}
+            console.log('omvoiceschanged: ' + speechSynthesis.onvoiceschanged)
             updateDisplayedText("footer", "Number of available voices:" + voiceListSys.length);
-            });
+            console.log(voiceListSys)
+        });
         intialiseStartPage();
     });
 });
