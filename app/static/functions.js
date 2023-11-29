@@ -229,7 +229,8 @@ async function populateVoiceLists() {
     let voices = await getVoices();
     //let voices = speechSynthesis.getVoices();
     
-    let englishVoices = voices.filter(voice => voice.lang.startsWith('en'));
+    let validVoices = voices.filter(voice => !iosNoveltyVoices.includes(voice.name));
+    let englishVoices = validVoices.filter(voice => voice.lang.startsWith('en'));
     availableVoices = englishVoices;
     isVoicesLoaded = true;
 

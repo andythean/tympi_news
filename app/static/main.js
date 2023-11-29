@@ -16,6 +16,8 @@ let voiceListNarr = [];
 let menuList = ["System Voice", "Narration Voice", "Voice Speed"];
 let speechRateList = ["Slower", "Normal Speed", "Slightly Faster", "Fast", "Very Fast"];
 let speechRateVals = [0.75, 1.0, 1.25, 1.5, 2.0];
+let iosNoveltyVoices = ["Rocko", "Shelley", "Grandma", "Grandpa", "Flo", "Zarvox", "Suoerstar", "Jester", //
+       "Junior", "Bad News", "Bells", "Boing", "Bubbles", "Cellos", "Good News", "Pipe Organ", "Trinoids", "Whisper"]
 
 let availableVoices = [];
 let isVoicesLoaded = false;
@@ -48,17 +50,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
             //if (speechSynthesis.onvoiceschanged !== undefined) {              
             //  speechSynthesis.onvoiceschanged = populateVoiceLists;
             //}
-            console.log('omvoiceschanged: ' + speechSynthesis.onvoiceschanged)
             updateDisplayedText("footer", "Number of available voices:" + voiceListSys.length);
-            console.log(voiceListSys)
         });
         intialiseStartPage();
     });
 });
-
-// Get voice list and config following trigger that voics are loaded
-//window.speechSynthesis.onvoiceschanged = function() {
-//}
 
 // Listen for arrow keys
 document.addEventListener('keydown', (event) => {
@@ -98,7 +94,6 @@ document.addEventListener('touchend', (event) => {
     }
 });
 
-// Menu bar
 document.getElementById('enableTts-link').addEventListener('click', function(event) {
     event.preventDefault();
     enableSpeech();
@@ -117,7 +112,5 @@ document.getElementById('about-link').addEventListener('click', function(event) 
 // Listen for end of story
 document.addEventListener('readStoryComplete', () => {
     console.log('Finished reading story');
-    //sayText("End of story", config.sysVoiceIndex, config.speechRate);
-    //currentState = "doneReadingStory";
     currentState = "readingStory";
 });
