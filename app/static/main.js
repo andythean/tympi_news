@@ -95,14 +95,14 @@ document.addEventListener('touchend', (event) => {
     }
 });
 
-document.getElementById('enableTts-link').addEventListener('click', function(event) {
+document.getElementById('enableSpeech-link').addEventListener('click', function(event) {
     event.preventDefault();
     enableSpeech();
 });
 
-document.getElementById('menu-link').addEventListener('click', function(event) {
+document.getElementById('settings-link').addEventListener('click', function(event) {
     event.preventDefault();
-    navBarMenu();
+    navBarSettings();
 });
 
 document.getElementById('about-link').addEventListener('click', function(event) {

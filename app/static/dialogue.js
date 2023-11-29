@@ -14,12 +14,12 @@ function resetIndices() {
     sentIndex = 0;    
 }
 
-function navBarMenu() {
+function navBarSettings() {
     stopSpeakStory();
     menuIndex = 0;
     playMusic();
-    //setTimeout(() => {initMenu()}, 200);    
-    initMenu();    
+    //setTimeout(() => {initSettings()}, 200);    
+    initSettings();    
     currentState = "waitMainMenu";
 }
 
@@ -46,7 +46,7 @@ function enableSpeech() {
 
 // Start page
 function intialiseStartPage() {
-    outStr = "Swipe or use the arrow keys. 'RIGHT' for user guide, 'LEFT' for news stories, 'UP' for settings"  
+    outStr = "Swipe or use the arrow keys. 'LETT' for user guide, 'RIGHT' for news stories, 'UP' for settings"  
     updateDisplayedText("mainString", outStr);
     try {
         // TO DO: ckeck TTS allowed e.g. after user event
@@ -78,10 +78,10 @@ function leftOnHome() {
     updateDisplayedText("footer", footerStr);
 }
 
-function initMenu() {
-    outStr = `Please choose from the following list of settings.
-        Use 'RIGHT' to select. 'LEFT' to skip, and 'UP'' to go back'`;
-    sayText(outStr, config.prefVoiceSys, config.speechRate);
+function initSettings() {
+    //outStr = `Please choose from the following list of settings.
+    //    Use 'RIGHT' to select. 'LEFT' to skip, and 'UP'' to go back'`;
+    //sayText(outStr, config.prefVoiceSys, config.speechRate);
     outStr = menuList[menuIndex];
     updateDisplayedText("mainString", outStr);
     updateDisplayedText("footer", "");
@@ -392,7 +392,7 @@ function handleLeft() {
                 outStr = `That was the last option in the settings list`;
                 sayText(outStr, config.prefVoiceSys, config.speechRate);  
                 menuIndex = 0;
-                initMenu();
+                initSettings();
             }
             break;
         case "waitSelectSysVoice":
@@ -403,7 +403,7 @@ function handleLeft() {
                 announceLastVoice();
                 menuIndex = 0;
                 voiceIndex = 0;
-                initMenu();
+                initSettings();
                 currentState ="waitMainMenu";
             }
             break;
@@ -415,7 +415,7 @@ function handleLeft() {
                 announceLastVoice();
                 menuIndex = 0;
                 voiceIndex = 0;
-                initMenu();
+                initSettings();
                 currentState ="waitMainMenu";
             }
             break;
@@ -429,7 +429,7 @@ function handleLeft() {
                 sayText(outStr, config.prefVoiceSys, config.speechRate);  
                 speechRateIndex = 0;
                 menuIndex = 0;
-                initMenu();
+                initSettings();
                 currentState = "waitMainMenu"; 
             }     
        
@@ -444,7 +444,7 @@ function handleUp() {
         case "waitStart":
             playMusic();
             menuIndex = 0;
-            initMenu();
+            initSettings();
             currentState = "waitMainMenu"
             break;
         case "waitSelectFeed":
@@ -517,7 +517,7 @@ function handleUp() {
             currentState = "waitMainMenu"
             menuIndex = 0;
             voiceIndex = 0;
-            initMenu();
+            initSettings();
             break;
         case "waitSelectNarrVoice":
             outStr = `Okay, let's set a different option`;
@@ -525,7 +525,7 @@ function handleUp() {
             currentState = "waitMainMenu"
             menuIndex = 0;
             voiceIndex = 0;
-            initMenu();
+            initSettings();
             break;
         case "waitSelectSpeechRate":
             outStr = `Okay, let's set a different option`;
@@ -533,7 +533,7 @@ function handleUp() {
             currentState = "waitMainMenu"
             menuIndex = 0;
             speechRateIndex = 0;
-            initMenu();
+            initSettings();
             break;
         default:
             console.error("Invalid state");
