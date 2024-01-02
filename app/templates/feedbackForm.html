@@ -1,13 +1,13 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tympi TTS news reader</title>
+    <title>Tympi News Feedback Form</title>
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Atkinson Hyperlegible' rel='stylesheet'>
- 
+
     <style>
         body {
             font-family: 'Atkinson Hyperlegible';
@@ -44,17 +44,21 @@
             background-color: #000; /* Optional: Add background color to footer */
             color: #fff; /* Optional: Add text color */
         }
-        #submitRequestButton {
-            font-size: 18px;
-            padding: 5px 10px;
-            margin: 20px 30px;
+        #myInput {
+            width: 60%;
+            height: 20px;
+            border-radius: 8px;
+            padding: 5px;
+            border: 1px solid;
         }
-        #instructions {
-            font-size: 18px;
-            padding: 5px 10px;
-            margin: 20px 30px;
-        }    
 
+        #myInputWide {
+            width: 80%;
+            height: 50px;
+            border-radius: 8px;
+            padding: 5px;
+        }
+        
         nav {
             background-color: #333;
             color: #fff;
@@ -86,35 +90,56 @@
             background-color: #ddd;
             color: black;
         }
-
+        
     </style>
+
 </head>
+
 <body>
 
     <nav>
         <ul>
-            <li><a href="#enableTts" id="enableSpeech-link">Mobile</a></li>
-            <li><a href="#menu" id="settings-link">Settings</a></li>
-            <li><a href="#feedback" id="feedback-link">Feedback</a></li>
-            <li><a href="#about" id="about-link">About</a></li>
+            <li><a href="#close" id="close-link">Close</a></li>
         </ul>
     </nav>
-
-    <div id="mainDiv">
-        <h1 id="mainString"></h1>
-    </div>
 
     <div id="footer">
         <p id="footer"></p>
     </div>
 
-    <audio id="backgroundMusic" loop>
-        <source src="{{ url_for('static', filename='music/Ambient-music-free.mp3') }}" type="audio/mp3">
-    </audio>
+    <div id="mainDiv">
+        <h1 id="mainString"></h1>
 
-    <!-- Loading scripts in the correct order -->
-     <script defer src="{{ url_for('static', filename='dialogue.js') }}"></script>
-     <script defer src="{{ url_for('static', filename='functions.js') }}"></script>
-     <script defer src="{{ url_for('static', filename='main.js') }}"></script>
+        <form id="feedback-form">
+        
+            <p>
+                <label for="name">Name:</label>
+                <input type="text" id="myInput" name="name" placeholder="Optional" optional>
+            </p>
+            
+            <p>
+                <label for="email address">Email:</label>
+                <input type="email" id="myInput" name="email" placeholder="Optional" optional>
+            <p>
+        
+            <p>
+                <label for="user type">Motive:</label>
+                <input type="message" id="myInput" name="userType" placeholder="I'm interested in this because..." required>
+            <p>
+        
+            <p>
+                <label for="feature definition">Feature Requests:</label>
+                <textarea id="myInputWide" name="featureDef" placeholder="The app should ...X, so that ...Y" required></textarea>
+            <p>
+        
+            <p>
+                <label for="message">Comments:</label>
+                <textarea id="myInputWide" name="message" placeholder="" required></textarea>
+            <p>
+        
+            <button type="submit">Submit Feedback</button>
+        </form>
+
+    </div>
+
 </body>
-</html>

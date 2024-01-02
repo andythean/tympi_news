@@ -13,13 +13,15 @@ let sentences = {};
 
 let voiceListSys = [];
 let voiceListNarr = [];
-let menuList = ["System Voice", "Narration Voice", "Voice Speed"];
+let menuList = ["System Voice", "Narration Voice", "Voice Speed", "Music Volume"];
 let speechRateList = ["Slower", "Normal Speed", "Slightly Faster", "Fast", "Very Fast"];
 let speechRateVals = [0.75, 1.0, 1.25, 1.5, 2.0];
-let iosNoveltyVoices = ["Rocko", "Shelley", "Grandma", "Grandpa", "Flo", "Zarvox", "Superstar", "Jester", //
-        "Eddy", "Reed", "Sandy", "Bahh", "Albert", "Fred", "Organ", "Junior", "Bad News", "Bells", "Boing", //
-        "Bubbles", "Cellos", "Good News", "Pipe Organ", "Trinoids", "Whisper", "Wobble"]
+let volumeFacList = ["Moderate", "Soft", "Softer", "Softest", "Silent"];
+let volumeFacVals = [1, 0.075, 0.05, 0.025, 0];
 
+let iosNoveltyVoices = ["Rocko", "Shelley", "Grandma", "Grandpa", "Flo", "Zarvox", "Superstar", "Jester", //
+        "Eddy", "Reed", "Sandy", "Ralph", "Kathy", "Bahh", "Albert", "Fred", "Organ", "Junior", "Bad News", "Bells", "Boing", //
+        "Bubbles", "Cellos", "Good News", "Pipe Organ", "Trinoids", "Whisper", "Wobble"]
 let availableVoices = [];
 let isVoicesLoaded = false;
 
@@ -30,6 +32,7 @@ let sentIndex = 0;
 let voiceIndex = 0;
 let menuIndex = 0;
 let speechRateIndex = 0;
+let volumeFacIndex = 0;
 
 let isSpeaking = false;
 let keepSpeaking = true;
@@ -51,7 +54,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             //if (speechSynthesis.onvoiceschanged !== undefined) {              
             //  speechSynthesis.onvoiceschanged = populateVoiceLists;
             //}
-            updateDisplayedText("footer", "Number of available voices:" + voiceListSys.length);
+            updateDisplayedText("footer", "Number of voices available: " + voiceListSys.length);
         });
         intialiseStartPage();
     });

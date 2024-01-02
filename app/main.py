@@ -2,8 +2,10 @@ from flask import Flask, render_template, jsonify, request
 import json
 import feedparser
 import requests
+import smtplib
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
@@ -45,5 +47,33 @@ def get_sents():
     #story_sent[0] = server_url + url
     return jsonify(story_sent)
     
+#  Form handling
+@app.route('/submit-form', methods=['POST'])
+def submit_form():
+    # Extract form data
+    name = request.form['name']
+    email = request.form['email']
+    message = request.form['message']
+
+    # Send email
+    send_email(name, email, message)
+
+    return 'Form submitted successfully!'
+
+def send_email(name, email, message):
+    # Set up your email server and credentials
+    sender = 'your-email@example.com'
+    password = 'your-password'
+    recipient = 'recipient-email@example.com'
+
+    # Create email content
+    email_content = f"Name: {name}\nEmail: {email}\nMessage: {message}"
+
+    # Send the email
+    with smtplib.SMTP('smtp.example.com', 587) as server:
+        server.starttls()
+        server.login(sender, password)
+        server.sendmail(sender, recipient, email_content)
+
 if __name__ == '__main__':
     app.run(debug=True)

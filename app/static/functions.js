@@ -74,14 +74,14 @@ function getPref(settingName) {
 
 function getOrSetPref(settingName, defaultValue) {
 
-    //let settingValue = localStorage.getItem(settingName);
     let settingValue = getPref(settingName);
     
     if (!settingValue && settingValue != 0) {
         settingValue = defaultValue;
         setPref(settingName, settingValue);
+        console.log(`Setting preference: ${settingName}, as ${settingValue}`);
     } else {
-        console.log(`Keeping preference: ${settingName}, as ${settingValue}`)
+        console.log(`Keeping preference: ${settingName}, as ${settingValue}`);
     }
     
     return settingValue;
@@ -127,6 +127,7 @@ async function loadConfigAndPrefs() {
             // Set other variables
             config.speechRate = getOrSetPref('speechRate', config.speechRate);
             config.lastFeed = getOrSetPref('lastFeed', config.lastFeed);
+            config.volumeFac = getOrSetPref('volumeFac', config.volumeFac);
                         
             // log each feed
             config.rss_feeds.forEach(feed => {
@@ -227,7 +228,6 @@ async function populateVoiceLists() {
 
     //let voices = await loadVoices();
     let voices = await getVoices();
-    //let voices = speechSynthesis.getVoices();
     
     let validVoices = voices.filter(voice => !iosNoveltyVoices.includes(voice.name));
     let englishVoices = validVoices.filter(voice => voice.lang.startsWith('en'));
@@ -264,12 +264,9 @@ async function populateVoiceLists() {
 // TTS
 
 // Function to speak text with a specific voice
-function sayTextTrial(text, voiceName, rate) {
-//function sayText(text, voiceIndex, rate) {
-    const voiceIndex = 3; ///test
+//function sayTextTrial(text, voiceName, rate) {
+function sayTextviaIndex(text, voiceIndex, rate) {
     
-    updateDisplayedText("footer", 'Test.');
-
     if (!isVoicesLoaded) {
         updateDisplayedText("footer", 'Voices are not loaded yet.');
         console.error('Voices are not loaded yet.');
@@ -287,8 +284,6 @@ function sayTextTrial(text, voiceName, rate) {
     utterance.rate = rate;
     speechSynthesis.speak(utterance);
 }
-
-
 
 // Take voiceName as argument
 async function sayText(text, voiceName, rate) {

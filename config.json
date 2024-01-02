@@ -2,7 +2,7 @@
   "prefVoiceSys": "Daniel",
   "prefVoiceNarr": "Karen",
   "speechRate": 1.0,
-  "volumeFac": 0.025,
+  "volumeFac": 0.0,
   "prefFeed": "BBC Top Stories",
   "rss_feeds":[
         {
