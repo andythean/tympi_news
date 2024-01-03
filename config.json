@@ -18,18 +18,14 @@
             "url": "https://www.dutchnews.nl/feed"
             },
         {
-             "name": "Washington Post National News",
-             "url": "https://feeds.washingtonpost.com/rss/national"
-            },                    
-        {
             "name": "NPR",
             "url": "https://feeds.npr.org/1003/rss.xml",
        	    "notes": ""
        	    },
-    	{
-    	    "name": "Japan Today",
-    	    "url": "http://japantoday.com/feed/atom"
-    	},    	
+        	{
+        	    "name": "Japan Today",
+        	    "url": "http://japantoday.com/feed/atom"
+            	},    	
         {
             "name": "Sydney Morning Herald Latest News",
             "url": "https://www.smh.com.au/rss/feed.xml",

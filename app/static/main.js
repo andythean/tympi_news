@@ -108,6 +108,10 @@ document.getElementById('settings-link').addEventListener('click', function(even
     navBarSettings();
 });
 
+document.getElementById('feedback-link').addEventListener('click', function(event) {
+  window.open('/feedback', '_blank');
+});
+
 document.getElementById('about-link').addEventListener('click', function(event) {
     event.preventDefault();
     navBarAbout();

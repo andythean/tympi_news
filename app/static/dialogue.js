@@ -39,7 +39,7 @@ function navBarAbout() {
     stopSpeakStory();
     playMusic();
     footerStr = "'LEFT' for instructions, 'RIGHT' for news stories, 'UP' for settings"  
-    outStr = `This is a prototype designed to make news more accessible. We'd be very grateful for your feedback`;
+    outStr = `This is a prototype designed to make news more accessible, particularly for people with a visual impairment. Let us know what you think by clicking on 'Feedback'`;
     dispStr = outStr;
     updateDisplayedText("mainString", dispStr);
     sayText(outStr, config.prefVoiceNarr, config.speechRate)

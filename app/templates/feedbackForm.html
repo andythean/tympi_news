@@ -99,7 +99,9 @@
 
     <nav>
         <ul>
+        <!-- 
             <li><a href="#close" id="close-link">Close</a></li>
+        -->
         </ul>
     </nav>
 
@@ -110,31 +112,36 @@
     <div id="mainDiv">
         <h1 id="mainString"></h1>
 
-        <form id="feedback-form">
+        <form id="feedback-form" action="/submit-form" method="post">
         
             <p>
                 <label for="name">Name:</label>
-                <input type="text" id="myInput" name="name" placeholder="Optional" optional>
+                <input type="text" id="name" name="name" placeholder="Optional" optional>
             </p>
             
             <p>
                 <label for="email address">Email:</label>
-                <input type="email" id="myInput" name="email" placeholder="Optional" optional>
+                <input type="email" id="email" name="email" placeholder="Optional" optional>
             <p>
         
             <p>
-                <label for="user type">Motive:</label>
-                <input type="message" id="myInput" name="userType" placeholder="I'm interested in this because..." required>
+                <label for="user type">About you:</label>
+                <input type="message" id="userType" name="userType" placeholder="I'm interested in this because..." optional>
+            <p>
+
+            <p>
+                <label for="browser type">Your browser/Operating System:</label>
+                <input type="message" id="browserOs" name="browserOs" placeholder="e.g. Chrome/Safari on Mac etc." required>
             <p>
         
             <p>
-                <label for="feature definition">Feature Requests:</label>
-                <textarea id="myInputWide" name="featureDef" placeholder="The app should ...X, so that ...Y" required></textarea>
+                <label for="feature definition">Feature Request:</label>
+                <textarea id="featureDef" name="featureDef" placeholder="The app should ... so that ..." optional></textarea>
             <p>
         
             <p>
                 <label for="message">Comments:</label>
-                <textarea id="myInputWide" name="message" placeholder="" required></textarea>
+                <textarea id="comments" name="comments" placeholder="Optional" optional></textarea>
             <p>
         
             <button type="submit">Submit Feedback</button>

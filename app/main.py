@@ -1,8 +1,10 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, redirect, url_for
 import json
 import feedparser
 import requests
+import os
 import smtplib
+from email.mime.text import MIMEText
 
 app = Flask(__name__)
 
@@ -10,6 +12,14 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/feedback')
+def about():
+    return render_template('feedbackForm.html')
+
+@app.route('/feedback-received')
+def feedback_received():
+    return render_template('feedbackReceived.html')
 
 @app.route('/get_config')
 def get_config():
@@ -50,30 +60,41 @@ def get_sents():
 #  Form handling
 @app.route('/submit-form', methods=['POST'])
 def submit_form():
+    # TO-DO: CSRF protection with Flask-WTF
+
     # Extract form data
-    name = request.form['name']
-    email = request.form['email']
-    message = request.form['message']
+    name = request.form.get('name')
+    email = request.form.get('email')
+    userType = request.form.get('userType')
+    browserOs = request.form.get('browserOs')
+    featureDef = request.form.get('featureDef')
+    comments = request.form.get('comments')
 
+    email_content = f" Name: {name},\n Email: {email}, \n userType: {userType}, \n browserOs: {browserOs}, \n featureDef: {featureDef}, \n Comments: {comments}\n"
+     
+    #print(email_content)
+        
     # Send email
-    send_email(name, email, message)
+    send_email(email_content)
 
-    return 'Form submitted successfully!'
+    return redirect(url_for('feedback_received'))
 
-def send_email(name, email, message):
-    # Set up your email server and credentials
-    sender = 'your-email@example.com'
-    password = 'your-password'
-    recipient = 'recipient-email@example.com'
+def send_email(email_content):
+    
+    sender = os.environ.get('TYMPI_MAIL_SENDER')
+    recipients = os.environ.get('TYMPI_MAIL_RECIPIENTS')
+    password = os.environ.get('TYMPI_MAIL_PASS')
 
-    # Create email content
-    email_content = f"Name: {name}\nEmail: {email}\nMessage: {message}"
+    msg = MIMEText(email_content)
+    msg['Subject'] = "Tympi feedback"
+    msg['From'] = sender
+    msg['To'] = recipients
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
+       smtp_server.login(sender, password)
+       smtp_server.sendmail(sender, recipients, msg.as_string())
+    
+    print("Feednack sent!")
 
-    # Send the email
-    with smtplib.SMTP('smtp.example.com', 587) as server:
-        server.starttls()
-        server.login(sender, password)
-        server.sendmail(sender, recipient, email_content)
 
 if __name__ == '__main__':
     app.run(debug=True)
