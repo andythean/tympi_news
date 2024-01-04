@@ -362,7 +362,7 @@ function stopSpeaking() {
 };
 
 // Poll speechSynthesis.speaking to see if TTS has been cancelled 
-function waitForCancellation(maxAttempts = 50) {
+function waitForCancellation(maxAttempts = 25) {
   return new Promise((resolve, reject) => {
     let attempts = 0;
     const interval = setInterval(() => {
@@ -374,10 +374,9 @@ function waitForCancellation(maxAttempts = 50) {
         reject(new Error("Cancellation failed: Maximum attempts reached."));
       }
       attempts++;
-    }, 100); // Check every 100 milliseconds
+    }, 200); // Check every 200 milliseconds
   });
 }
-
 
 // ---       
 // ASR

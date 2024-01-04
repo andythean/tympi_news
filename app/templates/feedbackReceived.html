@@ -16,8 +16,39 @@
         margin: 0;
         padding: 0;
     }
+    #mainString {
+        font-Size: '32px';
+        font-weight: 400;
+        padding: 40px;
+        max-width: 800px;
+        margin: 40px auto;
+        word-break: break-word;
+    }
+    #myButton {
+        width: 190px;   
+        height: 55px;   
+        font-size: 32px;    
+        font-weight: bold;  
+        
+        // background-color: #4CAF50; /* background color */
+        //color: white;             /* text color */
+        border: none;             /* no border */
+        border-radius: 5px;       /* rounded corners */
+        cursor: pointer;          /* cursor changes to pointer on hover */
+        padding: 10px 20px;       /* padding inside the button */
+    }
+    
 </style>
 <body>
-  <h1>Thank you for your feedback !</h1>
+   <h1><a id="mainString"> Thank you for your feedback !</a></h1>
+   
+   <button id="myButton" onclick="closeTab()">Close Tab</button>
+
+    <script>
+        function closeTab() {
+            window.close();
+        }
+    </script>
+  
 </body>
 </html>

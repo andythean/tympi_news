@@ -7,8 +7,9 @@ function enableSpeech() {
     dispStr = `This is necessary to enable speech synthesis on mobile devices`;
     outStr = `Enabled speech on mobile`;
     updateDisplayedText("mainString", dispStr);
-    setTimeout(() => {sayText(outStr, config.prefVoiceNarr, config.speechRate)}, 200);    
-    setTimeout(() => {intialiseStartPage()}, 5000);
+    sayText(outStr, config.prefVoiceNarr, config.speechRate);    
+    //setTimeout(() => {sayText(outStr, config.prefVoiceNarr, config.speechRate)}, 200);    
+    //setTimeout(() => {intialiseStartPage()}, 5000);
 }
 
 function navBarSettings() {
@@ -282,7 +283,7 @@ async function handleRight() {
             break;
         case "waitSelectVolumeFac":
             config.volumeFac = setPref('volumeFac', volumeFacVals[volumeFacIndex]); 
-            outStr = `The volume of the backgorund music is now`;
+            outStr = `The volume of the background music is now`;
             sayText(outStr, config.prefVoiceSys, config.speechRate);
             sayText(volumeFacList[volumeFacIndex], config.prefVoiceNarr, config.speechRate);
             volumeFacIndex = 0;
@@ -356,37 +357,8 @@ function handleLeft() {
                 updateDisplayedText("footer", `${rssName}: ${storyIndex+1}/${feedData.length}`);
             }
             break;           
-        case "readingStory":
-        
+        case "readingStory":        
             stopSpeakStory()
-
-            if (false) {
-                stopSpeakStory();
-                playMusic();
-                storyIndex = storyIndex + 1;
-                sentIndex = 0;
-                currentState = "waitSelectStory"
-    
-                if (storyIndex < feedData.length){
-                    outStr = `Here's the next story`;
-                    sayText(outStr, config.prefVoiceSys, config.speechRate);
-                    
-                    // Read the title and wait
-                    storyName = feedData[storyIndex].title;
-                    updateDisplayedText("mainString", storyName);
-                    sayText(storyName, config.prefVoiceNarr, config.speechRate);
-                } else {
-                    feedIndex = feedIndex + 1;
-                    storyIndex = 0;
-                    currentState = "waitSelectFeed"
-                    outStr = `That was the last story in the list.
-                         Please select another news source`;
-                    sayText(outStr, config.prefVoiceSys, config.speechRate);
-                    rssName = config.rss_feeds[feedIndex].name;
-                    updateDisplayedText("mainString", rssName);
-                    sayText(rssName, config.prefVoiceNarr, config.speechRate)
-                }      
-            }
             break;           
         case "doneReadingStory":
             break;
