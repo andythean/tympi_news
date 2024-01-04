@@ -26,26 +26,13 @@
         #mainString {
             font-Size: '32px';
             font-weight: 400;
-            padding: 40px;
-            max-width: 800px;
-            margin: 40px auto;
+            padding: 5px;
+            max-width: 768px;
+            margin: 5px auto;
             word-break: break-word;
         }
-        #footer {
-            position: fixed;
-            font-size: 18px;
-            padding: 5px;
-            width: 90%;
-            bottom: 0;
-            margin: 5px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            background-color: #000; /* Optional: Add background color to footer */
-            color: #fff; /* Optional: Add text color */
-        }
         #myInput {
-            width: 60%;
+            width: 80%;
             height: 20px;
             border-radius: 8px;
             padding: 5px;
@@ -59,55 +46,11 @@
             padding: 5px;
         }
         
-        nav {
-            background-color: #333;
-            color: #fff;
-            font-size: 18px;
-            padding: 2px;
-            position: fixed;  
-            top: 5px;  
-            width: calc(100% - 20px);
-            margin: 5px; /* Margin around navbar */
-            <!--z-index: 1000;  /* Above all other elements */-->
-        }        
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        nav li {
-            float: left;
-        }
-        nav a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-        
     </style>
 
 </head>
 
 <body>
-
-    <nav>
-        <ul>
-        <!-- 
-            <li><a href="#close" id="close-link">Close</a></li>
-        -->
-        </ul>
-    </nav>
-
-    <div id="footer">
-        <p id="footer"></p>
-    </div>
 
     <div id="mainDiv">
         <h1 id="mainString"></h1>
@@ -126,22 +69,22 @@
         
             <p>
                 <label for="user type">About you:</label>
-                <input type="message" id="userType" name="userType" placeholder="I'm interested in this because..." optional>
+                <input type="message" id="myInput" name="userType" placeholder="I'm interested in this because..." optional>
             <p>
 
             <p>
                 <label for="browser type">Your browser/Operating System:</label>
-                <input type="message" id="browserOs" name="browserOs" placeholder="e.g. Chrome/Safari on Mac etc." required>
+                <input type="message" id="myInput" name="browserOs" placeholder="e.g. Chrome/Safari on Mac/Windows/Android etc." required>
             <p>
         
             <p>
                 <label for="feature definition">Feature Request:</label>
-                <textarea id="featureDef" name="featureDef" placeholder="The app should ... so that ..." optional></textarea>
+                <textarea id="myInputWide" name="featureDef" placeholder="The app should ... so that ..." optional></textarea>
             <p>
         
             <p>
                 <label for="message">Comments:</label>
-                <textarea id="comments" name="comments" placeholder="Optional" optional></textarea>
+                <textarea id="myInputWide" name="comments" placeholder="Optional" optional></textarea>
             <p>
         
             <button type="submit">Submit Feedback</button>

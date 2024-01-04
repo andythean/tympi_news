@@ -2,11 +2,6 @@
 // Dialogue State Model 
 // --------------------
 
-// Allows user to submit feature request
-function submitRequest() {
-    window.location.href = "mailto:abc@xyz.org?subject=Feature Request&body=Hi, %0A%20Thanks for your feedback.%0A%0A%20Please describe each of your feature requests in the following format:%0A- I am a... [optional - please say what type of user you are and why you might find the app useful in general],%0A%20- and I would like... [please describe your specific feature request],%0A%20- so that... [please say why the feature is useful]";
-}
-
 function enableSpeech() {
     stopSpeakStory();
     dispStr = `This is necessary to enable speech synthesis on mobile devices`;
@@ -63,8 +58,8 @@ function rightOnHome() {
 function leftOnHome() {
     playMusic();
     dispStr = `You should hear spoken instructions.
-        If not, click 'Enable Mobile', or try a different browser.`;
-    outStr = `Swipe or use the arrow keys to navigate mews atricles.
+        If not, click 'Mobile', or try a different browser.`;
+    outStr = `Swipe or use the arrow keys to navigate mews articles.
         Use 'LEFT' to skip, 'RIGHT' to select, or 'UP' to go back. 
         First select a news source, for example BBC news. 
         Next select a news story.

@@ -29,3 +29,14 @@ CNAME record
 - Type: CNAME
 - Name: app1.mydomain.io
 - Value: my-app1.herokuapp.com (no 'https://')
+
+Env variables 
+-------------
+Local:
+export TYMPI_MAIL_PASS='gmaail app key via settings'
+export TYMPI_MAIL_SENDER='xyz@gmail.com'
+export TYMPI_MAIL_RECIPIENTS='xyz@abc.io' 
+
+Heroku:
+heroku config:set TYMPI_MAIL_PASS='gmaail app key via settings'
+

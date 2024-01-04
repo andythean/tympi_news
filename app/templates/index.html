@@ -9,6 +9,15 @@
     <link href='https://fonts.googleapis.com/css?family=Atkinson Hyperlegible' rel='stylesheet'>
  
     <style>
+        @media only screen and (max-width: 768px) {
+            body {
+                -webkit-user-select: none; /* Safari */
+                -moz-user-select: none;    /* Firefox */
+                -ms-user-select: none;     /* IE/Edge */
+                user-select: none;         /* Standard syntax */
+            }
+        }
+
         body {
             font-family: 'Atkinson Hyperlegible';
             font-size: 24px;
@@ -79,7 +88,7 @@
             display: block;
             color: white;
             text-align: center;
-            padding: 14px 16px;
+            padding: 8px 10px;
             text-decoration: none;
         }
         nav a:hover {
