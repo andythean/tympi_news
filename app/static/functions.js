@@ -128,6 +128,20 @@ async function loadConfigAndPrefs() {
             config.speechRate = getOrSetPref('speechRate', config.speechRate);
             config.lastFeed = getOrSetPref('lastFeed', config.lastFeed);
             config.volumeFac = getOrSetPref('volumeFac', config.volumeFac);
+                   
+            // put last selected Feed first in list
+            //let selectedFeed = config.rss_feeds.splice(config.lastFeedIndex, 1)[0];
+            //config.rss_feeds.unshift(selectedFeed)
+            //console.log(selectedFeed)
+            let lastFeedIndex = config.rss_feeds.findIndex(obj => obj.name === config.lastFeed);
+
+            if (lastFeedIndex !== -1) {
+                // Remove the object from its current position
+                let item = config.rss_feeds.splice(lastFeedIndex, 1)[0];
+            
+                // Add the removed object to the beginning of the array
+                config.rss_feeds.unshift(item);
+            }
                         
             // log each feed
             config.rss_feeds.forEach(feed => {

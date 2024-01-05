@@ -1,15 +1,10 @@
 // Set background music
 let music = document.getElementById('backgroundMusic');
 
-// Set TTS variables. Speech rate may vary between 0.1 and 10
-//let speechQueue = [];
-
 // Set variables
 let config = {};
 let feedData = {};
 let sentences = {};
-
-// let voices = loadVoices();
 
 let voiceListSys = [];
 let voiceListNarr = [];
@@ -17,7 +12,7 @@ let menuList = ["System Voice", "Narration Voice", "Voice Speed", "Music Volume"
 let speechRateList = ["Slower", "Normal Speed", "Slightly Faster", "Fast", "Very Fast"];
 let speechRateVals = [0.75, 1.0, 1.25, 1.5, 2.0];
 let volumeFacList = ["Moderate", "Soft", "Softer", "Softest", "Silent"];
-let volumeFacVals = [1, 0.075, 0.05, 0.025, 0];
+let volumeFacVals = [0.2, 0.1, 0.05, 0.025, 0];
 
 let iosNoveltyVoices = ["Rocko", "Shelley", "Grandma", "Grandpa", "Flo", "Zarvox", "Superstar", "Jester", //
         "Eddy", "Reed", "Sandy", "Ralph", "Kathy", "Bahh", "Albert", "Fred", "Organ", "Junior", "Bad News", "Bells", "Boing", //
@@ -25,8 +20,11 @@ let iosNoveltyVoices = ["Rocko", "Shelley", "Grandma", "Grandpa", "Flo", "Zarvox
 let availableVoices = [];
 let isVoicesLoaded = false;
 
+let defaultFooter = "'LEFT' to skip, 'RIGHT' to select, 'UP' to go back"  
+
 let verbose = false;
 let feedIndex = 0;
+let lastFeedIndex = 0;
 let storyIndex = 0;
 let sentIndex = 0;
 let voiceIndex = 0;

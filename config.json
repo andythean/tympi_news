@@ -3,29 +3,29 @@
   "prefVoiceNarr": "Karen",
   "speechRate": 1.0,
   "volumeFac": 0.0,
-  "prefFeed": "BBC Top Stories",
+  "lastFeed": "",
   "rss_feeds":[
         {
             "name": "BBC News Top Stories",
             "url": "http://feeds.bbci.co.uk/news/rss.xml?edition=int"
             },
         {
-            "name": "The Guardian Most Popular Stories",
-            "url": "https://www.theguardian.com/uk/rss"  
-            },
-        {
             "name": "Dutch News",
             "url": "https://www.dutchnews.nl/feed"
             },
+        {
+            "name": "The Guardian Most Popular Stories",
+            "url": "https://www.theguardian.com/uk/rss"  
+            },
+        	{
+        	    "name": "Japan Today",
+        	    "url": "http://japantoday.com/feed/atom"
+            	},    	
         {
             "name": "NPR",
             "url": "https://feeds.npr.org/1003/rss.xml",
        	    "notes": ""
        	    },
-        	{
-        	    "name": "Japan Today",
-        	    "url": "http://japantoday.com/feed/atom"
-            	},    	
         {
             "name": "Sydney Morning Herald Latest News",
             "url": "https://www.smh.com.au/rss/feed.xml",
@@ -39,22 +39,7 @@
             "name": "Wired News",
             "url": "https://www.wired.com/feed",  
              "notes": ""                 
-            },
-        {
-            "name": "AppleVis Blog Posts",
-            "url": "https://www.applevis.com/feed/blog.xml",
-       	    "notes": ""
-       	    }, 	           	           	    
-        {
-            "name": "AppleVis Accessory Reviews",
-            "url": "https://www.applevis.com/feed/reviews.xml",
-       	    "notes": ""
-       	    }, 	           	           	    
-        {
-            "name": "AppleVis Guides and Tutorials",
-            "url": "https://www.applevis.com/feed/guides.xml",
-       	    "notes": ""
-       	    } 	           	           	                
+            } 	           	           	                
    ]
 }
 

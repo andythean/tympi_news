@@ -17,7 +17,7 @@ function navBarSettings() {
     menuIndex = 0;
     playMusic();
     initSettings();    
-    currentState = "waitMainMenu";
+    currentState = "waitSettings";
 }
 
 function navBarFeedback() {
@@ -28,7 +28,7 @@ function navBarFeedback() {
     updateDisplayedText("mainString", dispStr);
     sayText(outStr, config.prefVoiceNarr, config.speechRate)
     initFeedback();    
-    currentState = "waitMainMenu";
+    currentState = "waitSettings";
 }
 
 function navBarAbout() {
@@ -41,7 +41,7 @@ function navBarAbout() {
     sayText(outStr, config.prefVoiceNarr, config.speechRate)
     //setTimeout(() => {sayText(outStr, config.prefVoiceNarr, config.speechRate)}, 200);    
     //setTimeout(() => {intialiseStartPage()}, 5000);
-    updateDisplayedText("footer", footerStr);
+    updateDisplayedText("footer", defaultFooter);
     currentState = "waitStart";
 }
 
@@ -75,7 +75,7 @@ function leftOnHome() {
 function initSettings() {
     outStr = menuList[menuIndex];
     updateDisplayedText("mainString", outStr);
-    updateDisplayedText("footer", "");
+    updateDisplayedText("footer", defaultFooter);
     sayText(outStr, config.prefVoiceNarr, config.speechRate);
 }
 
@@ -123,8 +123,6 @@ function offerSpeechRate () {
 function offerVolumeFac () {
     const instructStr = `Option: ${volumeFacIndex+1}/${volumeFacList.length}`
     setVolume(volumeFacVals[volumeFacIndex]);
-    console.log(volumeFacVals[volumeFacIndex])
-    console.log(volumeFacIndex)
     music.play();
     outStr = `Select 'LEFT' to skip and 'RIGHT' to choose this volume`;
     updateDisplayedText("mainString", volumeFacList[volumeFacIndex]);
@@ -156,6 +154,9 @@ async function handleRight() {
                 rssName = selectedFeed.name;
                 rssUrl = selectedFeed.url;
                 console.log(rssUrl)
+                
+                config.lastFeed = setPref('lastFeed', rssName); 
+
                 
                 if (verbose){
                     outStr = `Okay, getting news from`;
@@ -236,7 +237,7 @@ async function handleRight() {
             break;
         case "doneReadingStory":
             break;
-        case "waitMainMenu":
+        case "waitSettings":
             console.log(menuList[menuIndex])
             switch (menuList[menuIndex]) {
                 case "System Voice":                    
@@ -299,7 +300,7 @@ function handleLeft() {
     switch (currentState) {
         case "waitStart":
             leftOnHome();
-            //currentState = "waitMainMenu"
+            //currentState = "waitSettings"
             break;
         case "waitSelectFeed":
             // Go to next feed in list
@@ -362,7 +363,7 @@ function handleLeft() {
             break;           
         case "doneReadingStory":
             break;
-        case "waitMainMenu":
+        case "waitSettings":
             menuIndex = menuIndex + 1;
             if (menuIndex < menuList.length) {
                 sayText("Skipping", config.prefVoiceSys, config.speechRate);    
@@ -385,7 +386,7 @@ function handleLeft() {
                 menuIndex = 0;
                 voiceIndex = 0;
                 initSettings();
-                currentState = "waitMainMenu";
+                currentState = "waitSettings";
             }
             break;
         case "waitSelectNarrVoice":
@@ -397,7 +398,7 @@ function handleLeft() {
                 menuIndex = 0;
                 voiceIndex = 0;
                 initSettings();
-                currentState = "waitMainMenu";
+                currentState = "waitSettings";
             }
             break;
         case "waitSelectSpeechRate":
@@ -411,7 +412,7 @@ function handleLeft() {
                 speechRateIndex = 0;
                 menuIndex = 0;
                 initSettings();
-                currentState = "waitMainMenu"; 
+                currentState = "waitSettings"; 
             }            
             break;
         case "waitSelectVolumeFac":
@@ -425,7 +426,7 @@ function handleLeft() {
                 volumeFacIndex = 0;
                 menuIndex = 0;
                 initSettings();
-                currentState = "waitMainMenu"; 
+                currentState = "waitSettings"; 
             }     
        
             break;
@@ -441,7 +442,7 @@ function handleUp() {
             playMusic();
             menuIndex = 0;
             initSettings();
-            currentState = "waitMainMenu"
+            currentState = "waitSettings"
             break;
         case "waitSelectFeed":
             feedIndex = 0;
@@ -500,7 +501,7 @@ function handleUp() {
             break;           
         case "doneReadingStory":
             break;
-        case "waitMainMenu":
+        case "waitSettings":
             outStr = `Returning to home`;
             sayText(outStr, config.prefVoiceSys, config.speechRate);
             currentState = "waitStart"
@@ -510,7 +511,7 @@ function handleUp() {
         case "waitSelectSysVoice":
             outStr = `Okay, let's set a different option`;
             sayText(outStr, config.prefVoiceSys, config.speechRate);
-            currentState = "waitMainMenu"
+            currentState = "waitSettings"
             menuIndex = 0;
             voiceIndex = 0;
             initSettings();
@@ -518,7 +519,7 @@ function handleUp() {
         case "waitSelectNarrVoice":
             outStr = `Okay, let's set a different option`;
             sayText(outStr, config.prefVoiceSys, config.speechRate);
-            currentState = "waitMainMenu"
+            currentState = "waitSettings"
             menuIndex = 0;
             voiceIndex = 0;
             initSettings();
@@ -526,7 +527,7 @@ function handleUp() {
         case "waitSelectSpeechRate":
             outStr = `Okay, let's set a different option`;
             sayText(outStr, config.prefVoiceSys, config.speechRate);
-            currentState = "waitMainMenu"
+            currentState = "waitSettings"
             menuIndex = 0;
             speechRateIndex = 0;
             initSettings();
@@ -534,7 +535,7 @@ function handleUp() {
         case "waitSelectVolumeFac":
             outStr = `Okay, let's set a different option`;
             sayText(outStr, config.prefVoiceSys, config.speechRate);
-            currentState = "waitMainMenu"
+            currentState = "waitSettings"
             menuIndex = 0;
             speechRateIndex = 0;
             initSettings();
