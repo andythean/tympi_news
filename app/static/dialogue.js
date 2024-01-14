@@ -47,6 +47,7 @@ function navBarAbout() {
 
 // Start page
 function intialiseStartPage() {
+    stopMusic();
     outStr = "Swipe or use the arrow keys. 'LEFT' for instructions, 'RIGHT' for news stories, 'UP' for settings"  
     updateDisplayedText("mainString", outStr);
 }
@@ -122,8 +123,8 @@ function offerSpeechRate () {
 
 function offerVolumeFac () {
     const instructStr = `Option: ${volumeFacIndex+1}/${volumeFacList.length}`
-    setVolume(volumeFacVals[volumeFacIndex]);
     music.play();
+    setVolume(volumeFacVals[volumeFacIndex]);
     outStr = `Select 'LEFT' to skip and 'RIGHT' to choose this volume`;
     updateDisplayedText("mainString", volumeFacList[volumeFacIndex]);
     updateDisplayedText("footer", instructStr);
