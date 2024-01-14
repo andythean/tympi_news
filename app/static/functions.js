@@ -159,8 +159,10 @@ async function loadConfigAndPrefs() {
 // -----------------       
 
 function playMusic() {
-    music.play();
-    setVolume(config.volumeFac);
+    if (config.volumeFac > 0){
+        music.play();
+        setVolume(config.volumeFac);
+    }
 }
 
 function pauseMusic() {
