@@ -1,4 +1,4 @@
 temp/
 Pip*
 __pycache__/
-
+.idea
