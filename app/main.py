@@ -55,7 +55,7 @@ def get_sents():
     story = sculta.fetch_content(url)
 
     #story_sent[0] = server_url + url
-    return jsonify(story)
+    return jsonify(story['sentences'])
     
 #  Form handling
 @app.route('/submit-form', methods=['POST'])
