@@ -6,14 +6,12 @@ A web app designed to make news more accessible, particularly for people with a 
 
 ### Demo
 
-Try it at: https://news.tympi.io/
+Try web app at: https://news.tympi.io/
 
-
-#### Screenshots: News Site Selection 
-Blue Overlay: Arrow/Swipe commands for selecting News Sites and Stories
+#### Screenshot: Orange arrows show navigation commands
 
 <div style="display: flex; justify-content: center;">
-  <img src="/demo/site_overlay.png" alt="Site selection showing up, left and right arrows" width="30%"/>
+  <img src="/demo/site_overlay.png" alt="Site selection showing up, left and right arrows" width="40%"/>
 </div>
 
 ----------
