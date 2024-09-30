@@ -1,18 +1,16 @@
-<div style="display: flex; justify-content: right;">
-  <img src="/demo/site_overlay.png" alt="Site selection showing up, left and right arrows" width="40%" align="right" />
-</div>
-
 ## Tympi News
+
+<div style="display: flex; justify-content: right;">
+  <img src="/demo/site_overlay.png" alt="Site selection showing up, left and right arrows" width="30%" align="right" />
+</div>
 
 ### Description
 
-A web app designed to make news more accessible, particularly for people with a visual impairment. The app runs in a browser and reads news stories aloud using a synthetic voice (Text-to Speech). It lets a user select a news story from a list of news sites (e.g. BBC News, NPR etc) with a stripped-down 3-button interface.
+A web app designed to make news more accessible, particularly for people with a visual impairment. The app runs in a browser and reads news stories aloud using a synthetic voice (text-to-speech). It lets a user select a news story from a list of news sites (e.g. BBC News, NPR etc) with a simple, 3-button interface. A machine-learning model improves listening comnfort by extracting salient news text. 
 
 ### Demo
 
 Try the web app at: https://news.tympi.io/
-
-----------
 
 ### Table of Contents
 
@@ -29,7 +27,7 @@ Try the web app at: https://news.tympi.io/
 - **Text-to-Speech**: Reads news stories out loud 
 - **Story Extraction**: Only reads the relevant text  
 - **Latest News**: Gets up-to-the-minute news
-- **Bare-Bones Navigation**: Three-key (three-swipe) interface
+- **Simple Navigation**: Three-key (three-swipe) interface
 
 ----------
 
