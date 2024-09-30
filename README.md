@@ -1,4 +1,8 @@
-## Tympi_news
+<div style="display: flex; justify-content: right;">
+  <img src="/demo/site_overlay.png" alt="Site selection showing up, left and right arrows" width="40%" align="right" />
+</div>
+
+## Tympi News
 
 ### Description
 
@@ -6,13 +10,7 @@ A web app designed to make news more accessible, particularly for people with a 
 
 ### Demo
 
-Try web app at: https://news.tympi.io/
-
-#### Screenshot: Orange arrows show navigation commands
-
-<div style="display: flex; justify-content: center;">
-  <img src="/demo/site_overlay.png" alt="Site selection showing up, left and right arrows" width="40%"/>
-</div>
+Try the web app at: https://news.tympi.io/
 
 ----------
 
