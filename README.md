@@ -94,7 +94,7 @@ We welcome contributions to improve the project, please follow these guidelines:
 
 ### Acknowledgements
 
-Essential contributors: [Luca Foppianbo](https://github.com/lfoppiano) and [Patrice Lopez](https://github.com/kermitt2)
+Essential contributors: [Luca Foppiano](https://github.com/lfoppiano) and [Patrice Lopez](https://github.com/kermitt2)
 
 Contact: [tympi.news@gmail.com](mailto:tympi.news@gmail.com)
 
