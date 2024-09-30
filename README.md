@@ -92,7 +92,11 @@ We welcome contributions to improve the project, please follow these guidelines:
 4.  Push to the branch (`git push origin feature-branch`).
 5.  Create a new Pull Request.
 
-Main author and contact: Andrew Thean ([tympi.news@gmail.com](mailto:tympi.news@gmail.com))
+### Acknowledgements
+
+Essential contributors: [Luca Foppianbo](https://github.com/lfoppiano) and [Patrice Lopez](https://github.com/kermitt2)
+
+Contact: [tympi.news@gmail.com](mailto:tympi.news@gmail.com)
 
 ----------
 
