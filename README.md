@@ -1,7 +1,7 @@
 ## Tympi News
 
 <div style="display: flex; justify-content: right;">
-  <img src="/demo/site_overlay.png" alt="Site selection showing up, left and right arrows" width="30%" align="right" />
+  <img src="/demo/site_overlay.png" alt="A screenshot showing the web app navigation options. The news site name BBC News Top Stories is shown in white, large-font text on a black background. Three superimposed orange arrows represent commands available to a user via the arrow keys, or swipe commands. The UP arrow is labeled back to Menu, a left arrowm is labeled next site, and a right arrow is labeled select site." width="30%" align="right" />
 </div>
 
 ### Description
