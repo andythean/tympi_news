@@ -1,13 +1,16 @@
-from flask import Flask, render_template, jsonify, request, redirect, url_for
 import json
-import feedparser
-import requests
 import os
 import smtplib
 from email.mime.text import MIMEText
 
+import feedparser
+from flask import Flask, render_template, jsonify, request, redirect, url_for
+
+from sculta.sculta import Sculta
+
 app = Flask(__name__)
 
+sculta = Sculta('resources/models/catboost_model_2023-07-11.dump')
 
 @app.route('/')
 def index():
@@ -48,14 +51,11 @@ def get_sents():
     url = request.json.get('url')
     if not url:
         return jsonify({"error": "Invalid story URL"}), 400
-    
-    server_url = "https://sculta-server-4ddf18fa5a16.herokuapp.com/fetch_content?url="
-    r = requests.get(server_url + url)
 
-    #r = requests.get("https://sculta-server-4ddf18fa5a16.herokuapp.com/fetch_content?url=https://www.bbc.com/news/science-environment-66950930");
-    story_sent = r.json()['content']['sentences']
+    story = sculta.fetch_content(url)
+
     #story_sent[0] = server_url + url
-    return jsonify(story_sent)
+    return jsonify(story['sentences'])
     
 #  Form handling
 @app.route('/submit-form', methods=['POST'])
