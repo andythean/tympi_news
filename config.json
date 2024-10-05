@@ -17,10 +17,10 @@
             "name": "The Guardian Most Popular Stories",
             "url": "https://www.theguardian.com/uk/rss"  
             },
-        	{
-        	    "name": "Japan Today",
-        	    "url": "http://japantoday.com/feed/atom"
-            	},    	
+        {
+        	  "name": "Japan Today",
+        	  "url": "http://japantoday.com/feed/atom"
+        },    	
         {
             "name": "NPR",
             "url": "https://feeds.npr.org/1003/rss.xml",
