@@ -55,7 +55,7 @@ To run the project locally, follow these instructions.
 
 #### Setup
 
-1.  **Clone the repository**:
+1.  **Clone the repository (use your [PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) as password)**:
 
 	```bash
 	git clone https://github.com/andythean/tympi_news.git
@@ -94,7 +94,7 @@ We welcome contributions to improve the project, please follow these guidelines:
 
 ### Acknowledgements
 
-Essential contributors: [Luca Foppiano](https://github.com/lfoppiano) and [Patrice Lopez](https://github.com/kermitt2)
+Team/Essential contributors: [Luca Foppiano](https://github.com/lfoppiano) and [Patrice Lopez](https://github.com/kermitt2)
 
 Contact: [tympi.news@gmail.com](mailto:tympi.news@gmail.com)
 
