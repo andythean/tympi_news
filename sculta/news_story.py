@@ -7,6 +7,14 @@ Created on Wed Apr  5 17:36:36 2023
 """
 import json
 
+import nltk
+
+# Download 'punkt' if not already installed
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+
 from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
