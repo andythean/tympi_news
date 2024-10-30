@@ -14,9 +14,21 @@
             "url": "https://www.dutchnews.nl/feed"
             },
         {
+            "name": "Hacker News",
+            "url": "https://news.ycombinator.com/rss"
+            },    	
+        {
+            "name": "Il Foglio Editoriali",
+            "url": "https://www.ilfoglio.it/editoriali/rss.xml"
+            },    	
+        {
             "name": "Japan Today",
             "url": "http://japantoday.com/feed/atom"
-        },    	
+            },    	
+        {
+            "name": "Le Monde International",
+            "url": "https://www.lemonde.fr/en/international/rss_full.xml"
+            },    	
         {
             "name": "NPR",
             "url": "https://feeds.npr.org/1003/rss.xml",
