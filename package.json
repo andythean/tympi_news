@@ -1,4 +1,5 @@
 {
+  "_comment": "NOTE: buildpack on the remote servver must contain node.js",
   "name": "ReadabiliPy",
   "version": "0.1.0",
   "description": "An augmented Python wrapper for the Mozilla standalone Readability.js package.",
